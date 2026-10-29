@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Sarthak Rai, a first-year B.Tech student at Newton School of Technology exploring software development, product management, and creative problem-solving.">
+  <title>Sarthak Rai | Student &amp; Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       1. NAVIGATION BAR
+       Minimal, sticky navigation bar with semantic links
+  ========================================================= -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Sarthak Rai Portfolio Home">
+        <span class="logo-mark">SR</span>
+        <span class="logo-dot">.</span>
+      </a>
+
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#interests" class="nav-link">Interests</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         2. HERO SECTION
+         Introduction, status indicator, action buttons, CSS visual
+    ========================================================= -->
+    <section id="home" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-indicator"></span>
+            <span class="status-text">Currently learning, building, and experimenting.</span>
+          </div>
+
+          <h1 class="hero-title">Hey, I'm <span class="text-accent">Sarthak Rai</span>.</h1>
+          
+          <p class="hero-tagline">Student. Builder. Curious about products and technology.</p>
+          
+          <p class="hero-description">
+            I'm a first-year B.Tech student exploring software development, product management, and the process of turning ideas into useful products.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore My Work</a>
+            <a href="#contact" class="btn btn-secondary">Connect With Me</a>
+          </div>
+        </div>
+
+        <!-- Pure CSS developer visual element: layered cards representing code, ideas & products -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="stacked-cards">
+            <div class="code-card card-back">
+              <div class="card-header">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+                <span class="card-filename">concept.md</span>
+              </div>
+              <div class="card-body">
+                <span class="code-comment">// Turning insights into reality</span>
+                <p class="code-line"><span class="code-keyword">problem</span> = "Everyday Friction";</p>
+                <p class="code-line"><span class="code-keyword">solution</span> = "Simple &amp; Useful";</p>
+              </div>
+            </div>
+
+            <div class="code-card card-middle">
+              <div class="card-header">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+                <span class="card-filename">product.json</span>
+              </div>
+              <div class="card-body">
+                <p class="code-line">"role": "First-Year B.Tech",</p>
+                <p class="code-line">"mindset": "Continuous Learner",</p>
+                <p class="code-line">"focus": "Product + Code"</p>
+              </div>
+            </div>
+
+            <div class="code-card card-front">
+              <div class="card-header">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+                <span class="card-filename">sarthak.dev</span>
+              </div>
+              <div class="card-body">
+                <div class="monogram-badge">
+                  <span class="mono-initials">SR</span>
+                  <span class="mono-sub">2026</span>
+                </div>
+                <div class="front-stats">
+                  <div class="stat-pill">HTML &amp; CSS</div>
+                  <div class="stat-pill">Product Thinking</div>
+                  <div class="stat-pill">Problem Solving</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. ABOUT ME SECTION
+         Biography narrative and structured quick-information card
+    ========================================================= -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Background</span>
+          <h2 class="section-title">A little about me.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text-column">
+            <p>
+              Hey, I'm Sarthak, a first-year B.Tech student at Newton School of Technology.
+            </p>
+            <p>
+              I'm interested in the intersection of technology, creativity, and problem-solving. College has given me the opportunity to explore more than just academics, from participating in hackathons and working with teams to learning about product management and experimenting with ideas.
+            </p>
+            <p>
+              I'm currently figuring out my strengths, learning new technologies, and trying to understand how good products are built, from identifying a problem to developing a solution.
+            </p>
+            <p>
+              Outside academics, I enjoy photography, sketching anime, gaming, music, and exploring creative ideas.
+            </p>
+            <p class="about-quote">
+              "This portfolio is a record of my journey so far: the things I build, the experiences I gain, the lessons I learn, and the person I become along the way."
+            </p>
+          </div>
+
+          <aside class="about-card-column">
+            <div class="info-card">
+              <h3 class="info-card-title">Quick Snapshot</h3>
+              
+              <dl class="info-list">
+                <div class="info-item">
+                  <dt class="info-label">Education</dt>
+                  <dd class="info-value">B.Tech (First Year)</dd>
+                </div>
+                
+                <div class="info-item">
+                  <dt class="info-label">Institution</dt>
+                  <dd class="info-value">Newton School of Technology</dd>
+                </div>
+                
+                <div class="info-item">
+                  <dt class="info-label">Current Focus</dt>
+                  <dd class="info-value">Development and product thinking</dd>
+                </div>
+                
+                <div class="info-item">
+                  <dt class="info-label">Interests</dt>
+                  <dd class="info-value">Technology, design, products, and creative work</dd>
+                </div>
+              </dl>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. INTERESTS AND WHAT I AM EXPLORING
+         Four exploration pillars with clear learning goals
+    ========================================================= -->
+    <section id="interests" class="section interests-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Curiosity</span>
+          <h2 class="section-title">What I'm exploring.</h2>
+          <p class="section-subtitle">Areas where I spend time reading, practicing, and experimenting with new concepts.</p>
+        </div>
+
+        <div class="grid-cards-4">
+          <article class="interest-card">
+            <div class="card-icon-box">01</div>
+            <h3 class="card-title">Software Development</h3>
+            <p class="card-description">
+              Learning the fundamentals of programming, understanding how applications work, and developing the skills needed to turn ideas into functional projects.
+            </p>
+            <div class="card-footer-tags">
+              <span class="mini-tag">Programming</span>
+              <span class="mini-tag">Web Basics</span>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <div class="card-icon-box">02</div>
+            <h3 class="card-title">Product Management</h3>
+            <p class="card-description">
+              Understanding users, identifying meaningful problems, studying existing products, and learning how product decisions shape the final experience.
+            </p>
+            <div class="card-footer-tags">
+              <span class="mini-tag">User Needs</span>
+              <span class="mini-tag">Product Teardowns</span>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <div class="card-icon-box">03</div>
+            <h3 class="card-title">AI &amp; Emerging Tech</h3>
+            <p class="card-description">
+              Exploring artificial intelligence, practical applications of AI, and how emerging technologies can be used to solve real-world problems.
+            </p>
+            <div class="card-footer-tags">
+              <span class="mini-tag">AI Applications</span>
+              <span class="mini-tag">Modern Tools</span>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <div class="card-icon-box">04</div>
+            <h3 class="card-title">Design &amp; Creativity</h3>
+            <p class="card-description">
+              Interested in the way visual design, user experience, photography, and creative thinking influence how people interact with products.
+            </p>
+            <div class="card-footer-tags">
+              <span class="mini-tag">UI / UX</span>
+              <span class="mini-tag">Photography</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. SKILLS AND TECHNOLOGIES
+         Honest, categorized skills currently being learned
+    ========================================================= -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Foundation</span>
+          <h2 class="section-title">What I'm learning.</h2>
+          <p class="section-subtitle">Skills and concepts I am currently developing through coursework, personal projects, and teamwork.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1 -->
+          <article class="skill-group-card">
+            <h3 class="skill-group-title">
+              <span class="group-bullet"></span>
+              Programming &amp; Development
+            </h3>
+            <p class="skill-group-desc">Building strong core fundamentals in code and web technologies.</p>
+            <ul class="skill-tag-list">
+              <li class="skill-tag">
+                <span class="tag-name">Programming fundamentals</span>
+                <span class="tag-level">Learning</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">HTML5</span>
+                <span class="tag-level">Practicing</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">CSS3</span>
+                <span class="tag-level">Practicing</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Git &amp; GitHub</span>
+                <span class="tag-level">Learning</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Web development fundamentals</span>
+                <span class="tag-level">Exploring</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Category 2 -->
+          <article class="skill-group-card">
+            <h3 class="skill-group-title">
+              <span class="group-bullet"></span>
+              Product &amp; Problem-Solving
+            </h3>
+            <p class="skill-group-desc">Developing structured thinking, problem validation, and team alignment.</p>
+            <ul class="skill-tag-list">
+              <li class="skill-tag">
+                <span class="tag-name">Product thinking</span>
+                <span class="tag-level">Exploring</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Problem identification</span>
+                <span class="tag-level">Practicing</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Basic product documentation</span>
+                <span class="tag-level">Learning</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Team collaboration</span>
+                <span class="tag-level">Active</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Presentation &amp; pitching</span>
+                <span class="tag-level">Practicing</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Category 3 -->
+          <article class="skill-group-card">
+            <h3 class="skill-group-title">
+              <span class="group-bullet"></span>
+              Creative Interests
+            </h3>
+            <p class="skill-group-desc">Creative pursuits that inform my aesthetic sense and perspective.</p>
+            <ul class="skill-tag-list">
+              <li class="skill-tag">
+                <span class="tag-name">Visual design</span>
+                <span class="tag-level">Interest</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Photography</span>
+                <span class="tag-level">Hobby</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Content creation</span>
+                <span class="tag-level">Exploring</span>
+              </li>
+              <li class="skill-tag">
+                <span class="tag-name">Creative ideation</span>
+                <span class="tag-level">Active</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. PROJECTS SECTION
+         Responsive project card grid with honest stage labels
+    ========================================================= -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title">Things I've worked on.</h2>
+          <p class="section-subtitle">A collection of concepts, pitch ideas, and ongoing technical explorations.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge status-planning">MVP Planning</span>
+              <span class="project-category">Product Concept</span>
+            </div>
+            <h3 class="project-title">WhatsApp-to-Calendar</h3>
+            <p class="project-description">
+              Exploring a workflow that turns useful information shared through WhatsApp into calendar events, with an emphasis on reducing manual effort and making everyday planning easier.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Automation</span>
+              <span class="pill">Productivity</span>
+              <span class="pill">Workflow</span>
+            </div>
+            <div class="project-footer">
+              <span class="status-placeholder">Coming soon &bull; Concept Stage</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge status-concept">Concept</span>
+              <span class="project-category">Product Idea</span>
+            </div>
+            <h3 class="project-title">WTFit - Smart Wardrobe</h3>
+            <p class="project-description">
+              A smart wardrobe concept focused on helping users think through outfit choices and organize clothing more effectively.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Lifestyle Tech</span>
+              <span class="pill">UX Concept</span>
+              <span class="pill">Organization</span>
+            </div>
+            <div class="project-footer">
+              <span class="status-placeholder">Coming soon &bull; Early Exploration</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge status-concept">Concept</span>
+              <span class="project-category">Product Concept</span>
+            </div>
+            <h3 class="project-title">Zender</h3>
+            <p class="project-description">
+              A social platform concept for travellers, exploring how people can connect and share experiences around their journeys.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Social</span>
+              <span class="pill">Travel</span>
+              <span class="pill">Community</span>
+            </div>
+            <div class="project-footer">
+              <span class="status-placeholder">Coming soon &bull; Design Draft</span>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card">
+            <div class="project-card-header">
+              <span class="project-badge status-pitch">Pitch Concept</span>
+              <span class="project-category">Hardware / Pitch</span>
+            </div>
+            <h3 class="project-title">GPS Shoes</h3>
+            <p class="project-description">
+              A concept exploring location-aware footwear and navigation, with a focus on helping people navigate unfamiliar environments.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Wearables</span>
+              <span class="pill">Navigation</span>
+              <span class="pill">Accessibility</span>
+            </div>
+            <div class="project-footer">
+              <span class="status-placeholder">Coming soon &bull; Pitch Deck</span>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="project-card project-card-featured">
+            <div class="project-card-header">
+              <span class="project-badge status-progress">In Progress</span>
+              <span class="project-category">Web Project</span>
+            </div>
+            <h3 class="project-title">Converge</h3>
+            <p class="project-description">
+              An example of my work exploring web-based products and collaborative problem-solving. Add the actual project description, implementation details, and source links once verified.
+            </p>
+            <div class="project-tags">
+              <span class="pill">HTML &amp; CSS</span>
+              <span class="pill">Web Prototype</span>
+              <span class="pill">Collaboration</span>
+            </div>
+            <div class="project-footer">
+              <!-- Replace with actual project link when ready -->
+              <span class="status-placeholder">Documentation &amp; Demo in progress</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. COLLEGE LIFE AND EXTRACURRICULAR ACTIVITIES
+         Timeline and stacked experiences beyond academics
+    ========================================================= -->
+    <section id="journey" class="section journey-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Campus &amp; Beyond</span>
+          <h2 class="section-title">Learning beyond the classroom.</h2>
+          <p class="section-subtitle">
+            For me, college is not just about completing a degree. It is also about meeting people, exploring new fields, learning to work in teams, and discovering what I enjoy doing.
+          </p>
+        </div>
+
+        <div class="journey-timeline">
+          <!-- Item 1 -->
+          <article class="journey-card">
+            <div class="journey-node"></div>
+            <div class="journey-content">
+              <div class="journey-meta">
+                <h3 class="journey-title">Arthakram</h3>
+                <span class="journey-tag">Product &amp; Content</span>
+              </div>
+              <p class="journey-desc">
+                My involvement with Arthakram has helped me explore product management, product thinking, communication, and collaborative work. I have also contributed to marketing and content-related initiatives.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="journey-card">
+            <div class="journey-node"></div>
+            <div class="journey-content">
+              <div class="journey-meta">
+                <h3 class="journey-title">Product Guys</h3>
+                <span class="journey-tag">Learning Initiative</span>
+              </div>
+              <p class="journey-desc">
+                An initiative associated with product management learning, focused on making product concepts easier to explore through structured lessons, product teardowns, and interactive challenges.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="journey-card">
+            <div class="journey-node"></div>
+            <div class="journey-content">
+              <div class="journey-meta">
+                <h3 class="journey-title">MasterGrade MUN 2026</h3>
+                <span class="journey-tag">Coordination &amp; Events</span>
+              </div>
+              <p class="journey-desc">
+                Contributing to organizing and communication-related work around a Model United Nations event, including coordination, promotional material, and delegate-facing communication.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="journey-card">
+            <div class="journey-node"></div>
+            <div class="journey-content">
+              <div class="journey-meta">
+                <h3 class="journey-title">Hackathons &amp; Team Projects</h3>
+                <span class="journey-tag">Collaborative Building</span>
+              </div>
+              <p class="journey-desc">
+                Participating in hackathon-related work and exploring how teams move from problem statements to ideas, prototypes, and potential solutions.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article class="journey-card">
+            <div class="journey-node"></div>
+            <div class="journey-content">
+              <div class="journey-meta">
+                <h3 class="journey-title">College Clubs &amp; Community</h3>
+                <span class="journey-tag">Community</span>
+              </div>
+              <p class="journey-desc">
+                Exploring opportunities to collaborate with students from different backgrounds and contribute to projects, events, and campus initiatives.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. HACKATHONS AND ACHIEVEMENTS
+         Honest, clearly attributed competitions and achievements
+    ========================================================= -->
+    <section id="achievements" class="section achievements-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Milestones</span>
+          <h2 class="section-title">Experiences worth sharing.</h2>
+          <p class="section-subtitle">
+            Competitions, team challenges, and problem-solving events. Team accomplishments are noted transparently.
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Achievement 1 -->
+          <article class="achievement-card">
+            <div class="achievement-header">
+              <span class="achievement-badge team-badge">Team Achievement</span>
+              <span class="achievement-sub">Hackathon</span>
+            </div>
+            <h3 class="achievement-title">Hypnexis '26</h3>
+            <p class="achievement-result">Third place among 489 teams &bull; ₹50,000 prize</p>
+            <p class="achievement-note">
+              Participated as part of a multi-member college team tackling real-world problem statements. Note: Verification and official college record confirmation in progress.
+            </p>
+          </article>
+
+          <!-- Achievement 2 -->
+          <article class="achievement-card">
+            <div class="achievement-header">
+              <span class="achievement-badge team-badge">Team Achievement</span>
+              <span class="achievement-sub">Case Challenge</span>
+            </div>
+            <h3 class="achievement-title">Product Paradox, BITSoM</h3>
+            <p class="achievement-result">Top 6 Finalist Cohort</p>
+            <p class="achievement-note">
+              Two first-year teams reached the Top 6 in this competitive product challenge. Personal involvement and cohort result currently listed as preliminary pending final verification.
+            </p>
+          </article>
+
+          <!-- Achievement 3 -->
+          <article class="achievement-card">
+            <div class="achievement-header">
+              <span class="achievement-badge challenge-badge">Competition</span>
+              <span class="achievement-sub">Developer Sprint</span>
+            </div>
+            <h3 class="achievement-title">Fetch-a-thon 3.0</h3>
+            <p class="achievement-result">Team Participant</p>
+            <p class="achievement-note">
+              Collaborative developer sprint focused on rapid ideation and prototyping. Verified project outcomes and individual contributions to be updated once officially certified.
+            </p>
+          </article>
+
+          <!-- Achievement 4 (Placeholder for ongoing participation) -->
+          <article class="achievement-card achievement-placeholder">
+            <div class="achievement-header">
+              <span class="achievement-badge placeholder-badge">Upcoming</span>
+              <span class="achievement-sub">Future Sprints</span>
+            </div>
+            <h3 class="achievement-title">Ongoing &amp; Future Challenges</h3>
+            <p class="achievement-result">In Progress</p>
+            <p class="achievement-note">
+              Actively preparing for upcoming collegiate hackathons, design sprints, and product case competitions throughout the academic year.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         9. GOALS AND LEARNING JOURNEY
+         Reflection and forward-looking three-pillar vision
+    ========================================================= -->
+    <section id="goals" class="section goals-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Looking Forward</span>
+          <h2 class="section-title">Where I'm headed.</h2>
+        </div>
+
+        <div class="goals-content-grid">
+          <div class="goals-copy">
+            <p>
+              I'm at the beginning of my journey, and there is still a lot I want to learn.
+            </p>
+            <p>
+              My current goal is to build a strong foundation in software development while exploring product management and understanding how technology can solve real problems.
+            </p>
+            <p>
+              I want to work on projects that go beyond tutorials, collaborate with people who challenge me to think differently, participate in meaningful competitions, and gradually build a portfolio that reflects what I can actually do.
+            </p>
+            <p>
+              I'm not trying to have everything figured out right now. I'm focused on learning consistently, experimenting, and improving with every project.
+            </p>
+          </div>
+
+          <div class="goals-pillars">
+            <div class="pillar-card">
+              <span class="pillar-number">01</span>
+              <h3 class="pillar-title">Build strong technical fundamentals.</h3>
+              <p class="pillar-desc">Deepen understanding of core programming, web architecture, and clean implementation standards.</p>
+            </div>
+
+            <div class="pillar-card">
+              <span class="pillar-number">02</span>
+              <h3 class="pillar-title">Create and document real projects.</h3>
+              <p class="pillar-desc">Move beyond guided tutorials into shipping functional products and writing thorough documentation.</p>
+            </div>
+
+            <div class="pillar-card">
+              <span class="pillar-number">03</span>
+              <h3 class="pillar-title">Learn through collaboration and experimentation.</h3>
+              <p class="pillar-desc">Engage with multidisciplinary teams, participate in hackathons, and learn by shipping quickly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         10. CONTACT SECTION
+         Clean direct links without JavaScript or fake forms
+    ========================================================= -->
+    <section id="contact" class="section contact-section">
+      <div class="container contact-container">
+        <div class="contact-card">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Let's connect.</h2>
+          <p class="contact-text">
+            I'm always open to connecting with people who enjoy building things, exploring ideas, or learning something new.
+          </p>
+
+          <!-- Direct links using standard HTML anchor tags -->
+          <div class="contact-links">
+            <!-- Replace placeholder URLs with your actual profile links before submission -->
+            <a href="https://linkedin.com/in/sarthak-rai" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">&rarr;</span>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-hint">linkedin.com/in/sarthak-rai</span>
+            </a>
+
+            <a href="https://github.com/sarthak-rai" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <span class="contact-icon">&rarr;</span>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-hint">github.com/sarthak-rai</span>
+            </a>
+
+            <a href="mailto:sarthak.rai@example.com" class="contact-btn">
+              <span class="contact-icon">&rarr;</span>
+              <span class="contact-label">Email</span>
+              <span class="contact-hint">sarthak.rai@example.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       11. FOOTER
+       Clean sign-off, personal note, and back-to-top anchor
+  ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <p class="footer-credit">Designed and built by <strong>Sarthak Rai</strong>.</p>
+        <p class="footer-note">A small snapshot of a journey that's just getting started.</p>
+      </div>
+      
+      <div class="footer-right">
+        <a href="#home" class="back-to-top">
+          Back to top <span aria-hidden="true">&uarr;</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
