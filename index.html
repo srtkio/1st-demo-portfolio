@@ -1,241 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio of Sarthak Rai (SARTHAK.EXE) — B.Tech student at Newton School of Technology exploring software development, AI, product management, and creative problem-solving.">
-  <title>Sarthak Rai | Student &bull; Builder &bull; SARTHAK.EXE</title>
-  
+  <meta name="description" content="Personal portfolio of Sarthak Rai — B.Tech student at Newton School of Technology. Exploring software development, product management, AI systems, and precision digital products.">
+  <title>Sarthak Rai — Personal Portfolio / 2026</title>
+
+  <!-- Prevent theme flash on page load -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('sarthak_theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="stylesheet" href="style.css">
 
-  <!-- GSAP & ScrollTrigger (Loaded asynchronously from high-availability CDN with pure JS fallback) -->
+  <!-- GSAP & ScrollTrigger for precision choreography with pure JS fallback -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
-<body class="dark-theme">
+<body>
 
-  <!-- Reading Progress Bar -->
+  <!-- Top Thin Reading Progress Bar -->
   <div id="reading-progress" class="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-  <!-- Background Ambient Glow & Grid Overlay -->
-  <div class="ambient-canvas" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="tech-grid-overlay"></div>
+  <!-- Cold Precision Architectural Grid Background -->
+  <div class="cold-grid-canvas" aria-hidden="true">
+    <div class="grid-coordinate-line h-line-top"></div>
+    <div class="grid-coordinate-line v-line-left"></div>
+    <div class="grid-coordinate-line v-line-right"></div>
+    <div class="ambient-subtle-glow"></div>
   </div>
 
   <!-- =========================================================
-       1. NAVIGATION BAR
-       Minimal sticky navigation with active ScrollSpy indicators
+       1. EDITORIAL TOP NAVIGATION
   ========================================================= -->
   <header class="site-header" id="site-header">
     <div class="nav-container">
-      <a href="#home" class="nav-logo" aria-label="Sarthak Rai Portfolio Home">
-        <span class="logo-bracket">[</span>
+      <a href="#home" class="nav-logo" aria-label="Sarthak Rai Home">
         <span class="logo-mark">SR</span>
-        <span class="logo-dot">.EXE</span>
-        <span class="logo-bracket">]</span>
+        <span class="logo-dot">.</span>
+        <span class="logo-year">2026</span>
       </a>
+
+      <!-- Live Section Status Indicator -->
+      <div class="nav-status-indicator hide-mobile" aria-hidden="true">
+        <span class="status-pulse-dot"></span>
+        <span class="status-section-name" id="nav-active-section">PORTFOLIO / HOME</span>
+      </div>
 
       <nav class="nav-menu" aria-label="Main Navigation">
         <ul class="nav-list" id="nav-list">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#github" class="nav-link">GitHub Live</a></li>
+          <li><a href="#projects" class="nav-link">Work</a></li>
+          <li><a href="#github" class="nav-link">GitHub</a></li>
           <li><a href="#journey" class="nav-link">Journey</a></li>
-          <li><a href="#achievements" class="nav-link">Milestones</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- Minimal Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark theme" title="Toggle cold light / dark mode">
+        <span class="theme-btn-label hide-mobile">THEME</span>
+        <span class="theme-icon-container">
+          <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+      </button>
     </div>
   </header>
 
   <main id="main-content">
     <!-- =========================================================
-         2. CINEMATIC HERO SECTION
-         Word-staggered typography, interactive workspace, coordinate badges
+         2. CINEMATIC COLD HERO SECTION
+         Editorial headline, abstract 3D precision engineering canvas
     ========================================================= -->
     <section id="home" class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="status-badge" data-animate="fade-up">
-            <span class="status-indicator"></span>
-            <span class="status-text">SYSTEM ACTIVE &bull; Exploring &amp; Building</span>
+      <div class="hero-backdrop-hairline" aria-hidden="true"></div>
+      
+      <div class="container hero-container">
+        <!-- Text Column -->
+        <div class="hero-editorial-column">
+          <div class="hero-meta-strip" data-stage="1">
+            <span class="meta-tag">PERSONAL PORTFOLIO / 2026</span>
+            <span class="meta-divider">/</span>
+            <span class="meta-location">NEWTON SCHOOL OF TECHNOLOGY</span>
           </div>
 
-          <h1 class="hero-title" id="hero-headline" data-animate="title">
-            <span class="word">Hey,</span>
-            <span class="word">I'm</span>
-            <span class="word hero-name-highlight">Sarthak Rai.</span>
+          <!-- Massive Editorial Heading -->
+          <h1 class="hero-editorial-title" data-stage="3">
+            <span class="hero-line"><span class="hero-line-inner">Curiosity</span></span>
+            <span class="hero-line"><span class="hero-line-inner">into</span></span>
+            <span class="hero-line hero-line-accent"><span class="hero-line-inner">something real.</span></span>
           </h1>
-          
-          <p class="hero-tagline" data-animate="fade-up">
-            Student. Builder. Curious about products and technology.
-          </p>
-          
-          <p class="hero-description" data-animate="fade-up">
-            I'm a B.Tech student at <strong>Newton School of Technology</strong> exploring software development, artificial intelligence, product management, and creative problem-solving.
+
+          <!-- Identity Line -->
+          <p class="hero-identity-line" data-stage="4">
+            <strong>Sarthak Rai</strong> &bull; B.Tech Student &bull; Builder
           </p>
 
-          <div class="hero-actions" data-animate="fade-up">
-            <a href="#projects" class="btn btn-primary">
-              <span>Explore My Work</span>
-              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Supporting Copy -->
+          <p class="hero-supporting-copy" data-stage="4">
+            Exploring technology, product thinking, and the space between an idea and something people can actually use.
+          </p>
+
+          <!-- Action Links -->
+          <div class="hero-actions-row" data-stage="5">
+            <a href="#projects" class="btn btn-cold-primary">
+              <span>Explore selected work</span>
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" class="btn-arrow" aria-hidden="true">
+                <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a href="#contact" class="btn btn-secondary">
-              <span>Connect With Me</span>
+            <a href="#about" class="btn btn-cold-secondary">
+              <span>Get to know me</span>
             </a>
           </div>
 
-          <!-- Sequenced Lifecycle Badges -->
-          <div class="workflow-sequence-strip" data-animate="fade-up">
-            <span class="wf-step">Ideas</span>
-            <span class="wf-arrow">&rarr;</span>
-            <span class="wf-step">Code</span>
-            <span class="wf-arrow">&rarr;</span>
-            <span class="wf-step">Products</span>
-            <span class="wf-arrow">&rarr;</span>
-            <span class="wf-step wf-highlight">Better People</span>
+          <!-- Technical Micro Labels -->
+          <div class="hero-telemetry-row" data-stage="5" aria-hidden="true">
+            <div class="telemetry-item">
+              <span class="t-key">STATUS</span>
+              <span class="t-val">ACTIVE RESEARCH</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="t-key">PROJECTS</span>
+              <span class="t-val">SIH 2026 / HYPNEXIS '26</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="t-key">GITHUB</span>
+              <span class="t-val">@srtkio</span>
+            </div>
           </div>
         </div>
 
-        <!-- Interactive 3D Digital Workspace Graphic -->
-        <div class="hero-visual" id="hero-visual-container" aria-hidden="true">
-          <div class="workspace-card-stack" id="workspace-interactive">
-            <div class="technical-crosshair crosshair-tl">+</div>
-            <div class="technical-crosshair crosshair-tr">+</div>
-            <div class="technical-crosshair crosshair-bl">+</div>
-            <div class="technical-crosshair crosshair-br">+</div>
+        <!-- Visual Column: Cinematic Cold 3D Precision Engineering Structure -->
+        <div class="hero-visual-column" id="hero-visual-column" aria-hidden="true">
+          <div class="cold-canvas-wrapper" id="hero-canvas-container">
+            <!-- Canvas Rendering the Geometric Assembly -->
+            <canvas id="hero-precision-canvas" width="600" height="600"></canvas>
 
-            <div class="code-card card-back">
-              <div class="card-header">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-amber"></span>
-                <span class="dot dot-green"></span>
-                <span class="card-filename">product_framework.ts</span>
-              </div>
-              <div class="card-body">
-                <p class="code-line"><span class="code-keyword">const</span> coreVision = {</p>
-                <p class="code-line indent-1">focus: <span class="code-string">"AI-Assisted Quality &amp; Systems"</span>,</p>
-                <p class="code-line indent-1">principle: <span class="code-string">"Explainable &amp; Auditable"</span>,</p>
-                <p class="code-line indent-1">hackathons: [<span class="code-string">"Hypnexis '26"</span>, <span class="code-string">"SIH 2026"</span>]</p>
-                <p class="code-line">};</p>
-              </div>
-            </div>
+            <!-- Precision Overlay Overlay Marks -->
+            <div class="hud-corner hud-tl">+ [00.00]</div>
+            <div class="hud-corner hud-tr">+ [14.20]</div>
+            <div class="hud-corner hud-bl">+ [-08.64]</div>
+            <div class="hud-corner hud-br">+ [SYSTEM.OK]</div>
 
-            <div class="code-card card-middle">
-              <div class="card-header">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-amber"></span>
-                <span class="dot dot-green"></span>
-                <span class="card-filename">system_telemetry.json</span>
-              </div>
-              <div class="card-body">
-                <p class="code-line">"institution": "Newton School of Tech",</p>
-                <p class="code-line">"github": "github.com/srtkio",</p>
-                <p class="code-line">"featured_ai": "AgriInspect / AgriGrade",</p>
-                <p class="code-line">"winner": "Hypnexis '26 (Monster Energy)"</p>
-              </div>
-            </div>
-
-            <div class="code-card card-front">
-              <div class="card-header">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-amber"></span>
-                <span class="dot dot-green"></span>
-                <span class="card-filename">sarthak_workspace.terminal</span>
-              </div>
-              <div class="card-body">
-                <div class="monogram-badge">
-                  <div class="terminal-prompt">$ srtkio --status</div>
-                  <div class="terminal-output">
-                    <span>Compiling ideas into working prototypes</span>
-                    <span class="blinking-cursor">_</span>
-                  </div>
-                </div>
-                <div class="front-stats">
-                  <div class="stat-pill"><span class="pill-dot emerald"></span> AgriGrade SIH</div>
-                  <div class="stat-pill"><span class="pill-dot violet"></span> RAGSeal AI</div>
-                  <div class="stat-pill"><span class="pill-dot blue"></span> CONVERGE Civic</div>
-                </div>
-              </div>
+            <div class="hud-center-axis">
+              <span class="axis-badge">PRECISION ASSEMBLY // V2.6</span>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Scroll Handoff Indicator -->
+      <a href="#about" class="hero-scroll-cue" aria-label="Scroll to About section">
+        <span class="cue-label">SCROLL TO DISCOVER</span>
+        <span class="cue-line"></span>
+      </a>
     </section>
 
     <!-- =========================================================
-         3. ABOUT ME SECTION
-         Updated Biography with accurate institution and student context
+         3. ABOUT SECTION: COLD EDITORIAL BIOGRAPHY
     ========================================================= -->
     <section id="about" class="section about-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <span class="section-label">Identity &amp; Philosophy</span>
-          <h2 class="section-title">A little about me.</h2>
+        <div class="section-meta-header" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 01 / IDENTITY &amp; PHILOSOPHY</span>
+          <h2 class="section-editorial-title">A little about me.</h2>
         </div>
 
-        <div class="about-grid">
-          <div class="about-text-column" data-animate="fade-up">
-            <p>
-              I'm a B.Tech student at <strong>Newton School of Technology</strong> exploring software development, product management, artificial intelligence, and creative problem-solving. I enjoy participating in hackathons, collaborating on ideas, and learning how products move from a problem statement to a working solution.
+        <div class="about-editorial-grid">
+          <div class="about-narrative-col" data-reveal="fade">
+            <p class="narrative-lead">
+              I'm a B.Tech student at <strong>Newton School of Technology</strong> exploring software development, product management, artificial intelligence, and creative problem-solving.
             </p>
             <p>
-              College has provided the launchpad to dive deep beyond theory: from architecting AI-assisted agricultural quality systems for SIH 2026, to analyzing RAG attribution failure modes at Hypnexis '26, to exploring product management and marketing through <strong>Arthakram</strong> and <strong>Product Guys</strong>.
+              I enjoy participating in hackathons, collaborating on ideas, and learning how products move from a problem statement to a working solution. College has given me the opportunity to test ideas under genuine pressure—from building computer vision pipelines for agricultural inspection in SIH 2026 to attributing RAG failure modes at Hypnexis '26.
             </p>
             <p>
-              Outside academics, I immerse myself in <strong>photography</strong>, <strong>sketching anime</strong>, <strong>gaming</strong>, <strong>music</strong>, and exploring creative visual aesthetics.
+              Beyond the terminal, I focus on understanding people, systems, and communication through initiatives like <strong>Arthakram</strong>, <strong>Product Guys</strong>, and <strong>MasterGrade MUN 2026</strong>.
             </p>
-            <blockquote class="about-quote">
-              "This portfolio is a record of my journey so far: the things I build, the experiences I gain, the lessons I learn, and the person I become along the way."
-            </blockquote>
+            <p>
+              Personal interests include photography, sketching anime, gaming, music, and visual creativity.
+            </p>
+            
+            <div class="cold-quote-box">
+              <span class="quote-symbol">&ldquo;</span>
+              <p>This portfolio is a record of my journey so far: the things I build, the experiences I gain, the lessons I learn, and the person I become along the way.</p>
+            </div>
           </div>
 
-          <aside class="about-card-column" data-animate="fade-up">
-            <div class="info-card">
-              <h3 class="info-card-title">Profile Snapshot</h3>
-              
-              <dl class="info-list">
-                <div class="info-item">
-                  <dt class="info-label">Name</dt>
-                  <dd class="info-value">Sarthak Rai</dd>
-                </div>
+          <aside class="about-spec-col" data-reveal="fade">
+            <div class="cold-spec-card">
+              <div class="spec-header">
+                <span class="spec-caption">SYSTEM SPECIFICATION</span>
+                <span class="spec-id">ID: SR-2026</span>
+              </div>
 
-                <div class="info-item">
-                  <dt class="info-label">Education &amp; Degree</dt>
-                  <dd class="info-value">B.Tech &bull; Newton School of Technology</dd>
+              <dl class="spec-list">
+                <div class="spec-row">
+                  <dt class="spec-label">NAME</dt>
+                  <dd class="spec-val">Sarthak Rai</dd>
                 </div>
-                
-                <div class="info-item">
-                  <dt class="info-label">GitHub</dt>
-                  <dd class="info-value">
-                    <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="text-link">
+                <div class="spec-row">
+                  <dt class="spec-label">INSTITUTION</dt>
+                  <dd class="spec-val">Newton School of Technology</dd>
+                </div>
+                <div class="spec-row">
+                  <dt class="spec-label">DEGREE</dt>
+                  <dd class="spec-val">B.Tech (First Year Cohort)</dd>
+                </div>
+                <div class="spec-row">
+                  <dt class="spec-label">GITHUB PROFILE</dt>
+                  <dd class="spec-val">
+                    <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="cold-link">
                       github.com/srtkio &nearr;
                     </a>
                   </dd>
                 </div>
-
-                <div class="info-item">
-                  <dt class="info-label">Direct Email</dt>
-                  <dd class="info-value">
-                    <a href="mailto:trojan5779@gmail.com" class="text-link">trojan5779@gmail.com</a>
+                <div class="spec-row">
+                  <dt class="spec-label">DIRECT EMAIL</dt>
+                  <dd class="spec-val">
+                    <a href="mailto:trojan5779@gmail.com" class="cold-link">trojan5779@gmail.com</a>
                   </dd>
                 </div>
-                
-                <div class="info-item">
-                  <dt class="info-label">Key Involvements</dt>
-                  <dd class="info-value">Arthakram, Product Guys, MUN 2026, Hackathons</dd>
+                <div class="spec-row">
+                  <dt class="spec-label">INVOLVEMENTS</dt>
+                  <dd class="spec-val">Arthakram, Product Guys, MUN 2026, Hackathons</dd>
                 </div>
-
-                <div class="info-item">
-                  <dt class="info-label">Personal Passions</dt>
-                  <dd class="info-value">Photography, Anime Sketching, Gaming, Music</dd>
+                <div class="spec-row">
+                  <dt class="spec-label">CREATIVE INTERESTS</dt>
+                  <dd class="spec-val">Photography, Anime Sketching, Gaming, Music</dd>
                 </div>
               </dl>
             </div>
@@ -245,351 +265,338 @@
     </section>
 
     <!-- =========================================================
-         4. ANIMATED TECHNICAL FLOWCHARTS (MAJOR FEATURE)
-         Interactive Flowcharts: AgriGrade, Problem-to-Product, Portfolio Arch
+         4. TECHNICAL FLOWCHARTS & ARCHITECTURE
+         AgriGrade Inspection Pipeline, Problem-to-Product, Architecture
     ========================================================= -->
     <section id="architecture" class="section architecture-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <span class="section-label">Interactive Systems Engineering</span>
-          <h2 class="section-title">Technical Flowcharts &amp; Architecture.</h2>
-          <p class="section-subtitle">
-            Explore live, interactive visualizations of real-world workflows I have engineered and documented.
+        <div class="section-meta-header" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 02 / SYSTEMS ARCHITECTURE</span>
+          <h2 class="section-editorial-title">Engineered Flowcharts &amp; Logic.</h2>
+          <p class="section-editorial-sub">
+            Interactive, animated diagrams demonstrating verified system workflows and product methodology.
           </p>
         </div>
 
         <!-- Flowchart Selector Tabs -->
-        <div class="diagram-tabs" data-animate="fade-up" role="tablist" aria-label="Architecture Diagrams">
-          <button class="diagram-tab active" data-diagram="agrigrade" role="tab" aria-selected="true" aria-controls="diagram-agrigrade-panel">
-            <span class="tab-indicator"></span>
+        <div class="cold-tab-bar" role="tablist" aria-label="Architecture Diagrams" data-reveal="fade">
+          <button class="cold-tab active" data-diagram="agrigrade" role="tab" aria-selected="true" aria-controls="diagram-agrigrade-panel">
+            <span class="tab-index">01</span>
             <span>Flowchart A: AgriGrade (AgriInspect)</span>
           </button>
-          <button class="diagram-tab" data-diagram="framework" role="tab" aria-selected="false" aria-controls="diagram-framework-panel">
-            <span class="tab-indicator"></span>
+          <button class="cold-tab" data-diagram="framework" role="tab" aria-selected="false" aria-controls="diagram-framework-panel">
+            <span class="tab-index">02</span>
             <span>Flowchart B: Problem to Product</span>
           </button>
-          <button class="diagram-tab" data-diagram="portfolio" role="tab" aria-selected="false" aria-controls="diagram-portfolio-panel">
-            <span class="tab-indicator"></span>
-            <span>Flowchart C: Portfolio Architecture</span>
+          <button class="cold-tab" data-diagram="portfolio" role="tab" aria-selected="false" aria-controls="diagram-portfolio-panel">
+            <span class="tab-index">03</span>
+            <span>Flowchart C: Behind the Build</span>
           </button>
         </div>
 
-        <!-- ==================== DIAGRAM 1: AGRIGRADE / AGRIINSPECT ==================== -->
+        <!-- ==================== FLOWCHART A: AGRIGRADE ==================== -->
         <div id="diagram-agrigrade-panel" class="diagram-panel active" role="tabpanel" tabindex="0">
-          <div class="flowchart-meta-bar">
-            <div class="meta-left">
-              <span class="repo-badge">GitHub: srtkio/AgriGrade</span>
-              <span class="meta-statement">SIH 2026 Problem Statement SIH26031 &bull; Onion Quality Assessment</span>
+          <div class="flowchart-control-strip">
+            <div class="flowchart-title-left">
+              <span class="cold-pill">GitHub: srtkio/AgriGrade</span>
+              <span class="flowchart-subhead">SIH 2026 Problem Statement SIH26031 &bull; Onion Quality Assessment</span>
             </div>
-            <!-- Playback & Step Controls -->
-            <div class="flowchart-controls" aria-label="Pipeline Controls">
-              <button class="control-btn" id="ctrl-play" title="Play or Pause Pipeline Animation">
+            
+            <div class="flowchart-action-buttons">
+              <button class="cold-btn-ctrl" id="ctrl-play" title="Play or Pause automated simulation">
                 <span id="ctrl-play-icon">&rtrif;</span>
                 <span id="ctrl-play-text">Play Flow</span>
               </button>
-              <button class="control-btn" id="ctrl-step" title="Step forward to next node">
-                <span>&rarrb; Step</span>
+              <button class="cold-btn-ctrl" id="ctrl-step" title="Step forward to next node">
+                <span>Step &rarrb;</span>
               </button>
-              <button class="control-btn" id="ctrl-reset" title="Restart Pipeline from beginning">
-                <span>&circlearrowleft; Reset</span>
+              <button class="cold-btn-ctrl" id="ctrl-reset" title="Restart simulation from Lot Creation">
+                <span>Reset &circlearrowleft;</span>
               </button>
             </div>
           </div>
 
-          <!-- Interactive SVG Pipeline Visualization -->
-          <div class="svg-diagram-wrapper">
-            <svg id="agrigrade-svg" class="flowchart-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AgriInspect Inspection Pipeline Workflow">
+          <!-- SVG Flowchart Engine -->
+          <div class="svg-viewport-wrapper">
+            <svg id="agrigrade-svg" class="cold-flowchart-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AgriGrade Inspection Pipeline Diagram">
               <defs>
-                <!-- Arrowhead Marker -->
-                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#6366f1" />
+                <marker id="cold-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--text-secondary)" />
+                </marker>
+                <marker id="cold-arrow-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent-highlight)" />
                 </marker>
                 <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#10b981" />
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent-signal-emerald)" />
                 </marker>
                 <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#f59e0b" />
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--accent-signal-amber)" />
                 </marker>
-
-                <!-- Connector Gradient -->
-                <linearGradient id="line-glow" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#4f46e5" />
-                  <stop offset="50%" stop-color="#38bdf8" />
-                  <stop offset="100%" stop-color="#6366f1" />
-                </linearGradient>
               </defs>
 
-              <!-- Connector Paths -->
+              <!-- Connectors -->
               <g class="pipeline-connectors">
-                <!-- 1 to 2 -->
-                <line id="path-1-2" x1="110" y1="90" x2="160" y2="90" class="pipe-line" marker-end="url(#arrow)" />
-                <!-- 2 to 3 -->
-                <line id="path-2-3" x1="280" y1="90" x2="330" y2="90" class="pipe-line" marker-end="url(#arrow)" />
-                <!-- 3 to 4 (CV Node) -->
-                <line id="path-3-4" x1="450" y1="90" x2="500" y2="90" class="pipe-line" marker-end="url(#arrow)" />
+                <line id="path-1-2" x1="110" y1="90" x2="160" y2="90" class="pipe-line" marker-end="url(#cold-arrow)" />
+                <line id="path-2-3" x1="280" y1="90" x2="330" y2="90" class="pipe-line" marker-end="url(#cold-arrow)" />
+                <line id="path-3-4" x1="450" y1="90" x2="500" y2="90" class="pipe-line" marker-end="url(#cold-arrow)" />
 
-                <!-- 4 branching down into parallel branches -->
-                <!-- Branch A: Defect Detection -->
-                <path id="path-branch-defect" d="M 560 120 L 560 190 L 350 190 L 350 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
-                <!-- Branch B: Sprouting Detection -->
-                <path id="path-branch-sprout" d="M 560 120 L 560 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
-                <!-- Branch C: Size Estimation -->
-                <path id="path-branch-size" d="M 560 120 L 560 190 L 770 190 L 770 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
+                <!-- Branching from 4 -->
+                <path id="path-branch-defect" d="M 560 120 L 560 190 L 350 190 L 350 220" class="pipe-line branch-path" marker-end="url(#cold-arrow)" />
+                <path id="path-branch-sprout" d="M 560 120 L 560 220" class="pipe-line branch-path" marker-end="url(#cold-arrow)" />
+                <path id="path-branch-size" d="M 560 120 L 560 190 L 770 190 L 770 220" class="pipe-line branch-path" marker-end="url(#cold-arrow)" />
 
-                <!-- Converging branches to Batch Statistics (Step 5) -->
-                <path id="path-merge-defect" d="M 350 280 L 350 320 L 500 320 L 500 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
-                <path id="path-merge-sprout" d="M 560 280 L 560 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
-                <path id="path-merge-size" d="M 770 280 L 770 320 L 620 320 L 620 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
+                <!-- Merging to 5 -->
+                <path id="path-merge-defect" d="M 350 280 L 350 320 L 500 320 L 500 350" class="pipe-line merge-path" marker-end="url(#cold-arrow)" />
+                <path id="path-merge-sprout" d="M 560 280 L 560 350" class="pipe-line merge-path" marker-end="url(#cold-arrow)" />
+                <path id="path-merge-size" d="M 770 280 L 770 320 L 620 320 L 620 350" class="pipe-line merge-path" marker-end="url(#cold-arrow)" />
 
-                <!-- Step 5 to Step 6: Standards / Rules Engine -->
-                <line id="path-5-6" x1="620" y1="380" x2="680" y2="380" class="pipe-line" marker-end="url(#arrow)" />
+                <!-- 5 to 6 -->
+                <line id="path-5-6" x1="620" y1="380" x2="680" y2="380" class="pipe-line" marker-end="url(#cold-arrow)" />
 
-                <!-- Step 6 to Step 7: Decision Split -->
-                <line id="path-6-7" x1="800" y1="380" x2="850" y2="380" class="pipe-line" marker-end="url(#arrow)" />
+                <!-- 6 to 7 -->
+                <line id="path-6-7" x1="800" y1="380" x2="850" y2="380" class="pipe-line" marker-end="url(#cold-arrow)" />
 
-                <!-- Decision Split: High Confidence Path directly to Report -->
+                <!-- Decision Outputs -->
                 <path id="path-high-conf" d="M 910 410 L 910 480 L 620 480 L 620 480" class="pipe-line high-conf-line" marker-end="url(#arrow-green)" />
-                <!-- Decision Split: Low Confidence Path to Human Review -->
                 <path id="path-low-conf" d="M 850 350 L 750 350 L 300 350 L 300 450" class="pipe-line low-conf-line" marker-end="url(#arrow-amber)" />
-                <!-- Human Review to Report -->
-                <line id="path-review-report" x1="360" y1="480" x2="480" y2="480" class="pipe-line" marker-end="url(#arrow)" />
+                <line id="path-review-report" x1="360" y1="480" x2="480" y2="480" class="pipe-line" marker-end="url(#cold-arrow)" />
               </g>
 
-              <!-- Moving Particle Indicator -->
+              <!-- Moving Particle -->
               <circle id="flow-particle" cx="50" cy="90" r="5" class="flow-particle" />
 
               <!-- Nodes Group -->
               <g class="pipeline-nodes">
-                <!-- Node 1: Create Lot -->
+                <!-- 01: Create Lot -->
                 <g class="flow-node active-step" id="node-1" data-node="1" transform="translate(10, 60)">
-                  <rect width="100" height="60" rx="8" class="node-box" />
-                  <text x="50" y="28" text-anchor="middle" class="node-num">01</text>
+                  <rect width="100" height="60" rx="4" class="node-box" />
+                  <text x="50" y="27" text-anchor="middle" class="node-num">01</text>
                   <text x="50" y="44" text-anchor="middle" class="node-title">Create Lot</text>
                 </g>
 
-                <!-- Node 2: Capture / Upload Produce -->
+                <!-- 02: Capture -->
                 <g class="flow-node" id="node-2" data-node="2" transform="translate(160, 60)">
-                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <rect width="120" height="60" rx="4" class="node-box" />
                   <text x="60" y="26" text-anchor="middle" class="node-num">02</text>
                   <text x="60" y="42" text-anchor="middle" class="node-title">RGB Capture</text>
                   <text x="60" y="52" text-anchor="middle" class="node-sub">Smartphone</text>
                 </g>
 
-                <!-- Node 3: Quality Validation -->
+                <!-- 03: Validation -->
                 <g class="flow-node" id="node-3" data-node="3" transform="translate(330, 60)">
-                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <rect width="120" height="60" rx="4" class="node-box" />
                   <text x="60" y="26" text-anchor="middle" class="node-num">03</text>
-                  <text x="60" y="42" text-anchor="middle" class="node-title">Image Validation</text>
-                  <text x="60" y="52" text-anchor="middle" class="node-sub">Blur &bull; Lighting</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-title">Validation</text>
+                  <text x="60" y="52" text-anchor="middle" class="node-sub">Blur &bull; Light</text>
                 </g>
 
-                <!-- Node 4: Computer Vision Analysis (Branching Point) -->
+                <!-- 04: CV Analysis -->
                 <g class="flow-node node-focal" id="node-4" data-node="4" transform="translate(500, 50)">
-                  <rect width="140" height="70" rx="8" class="node-box" />
+                  <rect width="140" height="70" rx="4" class="node-box" />
                   <text x="70" y="28" text-anchor="middle" class="node-num">04</text>
                   <text x="70" y="46" text-anchor="middle" class="node-title">Computer Vision</text>
                   <text x="70" y="60" text-anchor="middle" class="node-sub">Onion Detection</text>
                 </g>
 
-                <!-- Parallel Branch A: Defect Detection -->
+                <!-- Branch 4a: Defect -->
                 <g class="flow-node branch-node" id="node-4a" data-node="4a" transform="translate(280, 220)">
-                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <rect width="140" height="60" rx="4" class="node-box" />
                   <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch A</text>
                   <text x="70" y="42" text-anchor="middle" class="node-title">Defect Detection</text>
                   <text x="70" y="52" text-anchor="middle" class="node-sub">Rot, cuts, mold</text>
                 </g>
 
-                <!-- Parallel Branch B: Sprouting Detection -->
+                <!-- Branch 4b: Sprouting -->
                 <g class="flow-node branch-node" id="node-4b" data-node="4b" transform="translate(490, 220)">
-                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <rect width="140" height="60" rx="4" class="node-box" />
                   <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch B</text>
                   <text x="70" y="42" text-anchor="middle" class="node-title">Sprouting Check</text>
-                  <text x="70" y="52" text-anchor="middle" class="node-sub">Neck germination</text>
+                  <text x="70" y="52" text-anchor="middle" class="node-sub">Neck shoots</text>
                 </g>
 
-                <!-- Parallel Branch C: Size Estimation -->
+                <!-- Branch 4c: Size -->
                 <g class="flow-node branch-node" id="node-4c" data-node="4c" transform="translate(700, 220)">
-                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <rect width="140" height="60" rx="4" class="node-box" />
                   <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch C</text>
                   <text x="70" y="42" text-anchor="middle" class="node-title">Size Estimation</text>
                   <text x="70" y="52" text-anchor="middle" class="node-sub">Calibrated mm &Oslash;</text>
                 </g>
 
-                <!-- Node 5: Batch Aggregation (Merge Point) -->
+                <!-- 05: Batch Stats -->
                 <g class="flow-node" id="node-5" data-node="5" transform="translate(490, 350)">
-                  <rect width="130" height="60" rx="8" class="node-box" />
+                  <rect width="130" height="60" rx="4" class="node-box" />
                   <text x="65" y="26" text-anchor="middle" class="node-num">05</text>
                   <text x="65" y="42" text-anchor="middle" class="node-title">Batch Analytics</text>
-                  <text x="65" y="52" text-anchor="middle" class="node-sub">Lot aggregation</text>
+                  <text x="65" y="52" text-anchor="middle" class="node-sub">Lot synthesis</text>
                 </g>
 
-                <!-- Node 6: Standards & Rules Engine -->
+                <!-- 06: Rules Engine -->
                 <g class="flow-node" id="node-6" data-node="6" transform="translate(680, 350)">
-                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <rect width="120" height="60" rx="4" class="node-box" />
                   <text x="60" y="26" text-anchor="middle" class="node-num">06</text>
                   <text x="60" y="42" text-anchor="middle" class="node-title">Rules Engine</text>
                   <text x="60" y="52" text-anchor="middle" class="node-sub">AGMARK / BIS</text>
                 </g>
 
-                <!-- Node 7: Confidence Decision Split -->
+                <!-- 07: Decision Gate -->
                 <g class="flow-node node-decision" id="node-7" data-node="7" transform="translate(850, 350)">
                   <polygon points="60,0 120,30 60,60 0,30" class="diamond-box" />
                   <text x="60" y="28" text-anchor="middle" class="node-title small">Confidence?</text>
-                  <text x="60" y="42" text-anchor="middle" class="node-sub">&ge; 85% vs &lt; 85%</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-sub">&ge; 85%</text>
                 </g>
 
-                <!-- Node 8: Human Review & Override -->
+                <!-- 08: Human Review -->
                 <g class="flow-node node-human" id="node-8" data-node="8" transform="translate(230, 450)">
-                  <rect width="130" height="60" rx="8" class="node-box" />
-                  <text x="65" y="26" text-anchor="middle" class="node-human-tag">Human-In-Loop</text>
-                  <text x="65" y="42" text-anchor="middle" class="node-title">Inspector Review</text>
-                  <text x="65" y="52" text-anchor="middle" class="node-sub">Override / Audit</text>
+                  <rect width="130" height="60" rx="4" class="node-box" />
+                  <text x="65" y="26" text-anchor="middle" class="node-human-tag">Human Review</text>
+                  <text x="65" y="42" text-anchor="middle" class="node-title">Inspector Audit</text>
+                  <text x="65" y="52" text-anchor="middle" class="node-sub">Override / Verify</text>
                 </g>
 
-                <!-- Node 9: Final Digital Inspection Report -->
+                <!-- 09: Digital Report -->
                 <g class="flow-node node-success" id="node-9" data-node="9" transform="translate(480, 450)">
-                  <rect width="150" height="60" rx="8" class="node-box" />
+                  <rect width="150" height="60" rx="4" class="node-box" />
                   <text x="75" y="26" text-anchor="middle" class="node-success-tag">FINAL OUTPUT</text>
                   <text x="75" y="42" text-anchor="middle" class="node-title">Digital Report</text>
-                  <text x="75" y="52" text-anchor="middle" class="node-sub">Explainable Grade</text>
+                  <text x="75" y="52" text-anchor="middle" class="node-sub">Verifiable Grade</text>
                 </g>
               </g>
             </svg>
           </div>
 
-          <!-- Interactive Node Explanatory Card -->
-          <div class="node-inspector-card" id="agrigrade-inspector">
-            <div class="inspector-header">
-              <span class="inspector-label" id="insp-step-label">Step 01 &bull; Initializing Lot</span>
-              <span class="inspector-badge" id="insp-badge">Entry Point</span>
+          <!-- Inspector Panel -->
+          <div class="cold-inspector-panel" id="agrigrade-inspector">
+            <div class="inspector-top">
+              <span class="inspector-badge" id="insp-badge">STEP 01 // LOT INIT</span>
+              <span class="inspector-step-counter" id="insp-step-label">Node 01 of 09</span>
             </div>
-            <h4 class="inspector-title" id="insp-title">Create Inspection Lot</h4>
-            <p class="inspector-description" id="insp-desc">
-              The inspector starts a new inspection session and enters a unique lot ID (e.g. <code>LOT: ON-2026-042</code>). Captures procurement centre metadata and batch context before images are acquired.
+            <h3 class="inspector-title" id="insp-title">Create Inspection Lot</h3>
+            <p class="inspector-desc" id="insp-desc">
+              The inspector starts a new inspection session and enters a unique lot ID (e.g. <code>LOT: ON-2026-042</code>). Captures origin mandi parameters, timestamp, and batch volume before image collection begins.
             </p>
-            <div class="inspector-footer">
-              <span class="inspector-tip">&bull; Click on any node in the diagram above to inspect documented technical specifications</span>
-              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="inspector-link">
-                View AgriGrade Repo on GitHub &rarr;
+            <div class="inspector-foot">
+              <span class="foot-tip">&bull; Click any node in the pipeline above to inspect its documented technical specification</span>
+              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="foot-link">
+                Repository Documentation &nearr;
               </a>
             </div>
           </div>
         </div>
 
-        <!-- ==================== DIAGRAM 2: PROBLEM TO PRODUCT ==================== -->
+        <!-- ==================== FLOWCHART B: PROBLEM TO PRODUCT ==================== -->
         <div id="diagram-framework-panel" class="diagram-panel" role="tabpanel" tabindex="0">
-          <div class="flowchart-meta-bar">
-            <div class="meta-left">
-              <span class="repo-badge">Product Thinking Framework</span>
-              <span class="meta-statement">How Sarthak approaches problems: from user friction to measurable software solutions</span>
+          <div class="flowchart-control-strip">
+            <div class="flowchart-title-left">
+              <span class="cold-pill">Product Thinking Framework</span>
+              <span class="flowchart-subhead">From user friction to measurable, auditable software solutions</span>
             </div>
           </div>
 
-          <div class="framework-diagram-grid">
-            <div class="framework-steps-container">
-              <div class="p2p-step active" data-step="1">
-                <div class="p2p-badge">01</div>
-                <div class="p2p-content">
+          <div class="framework-matrix-grid">
+            <div class="framework-step-column">
+              <div class="p2p-step-row active" data-step="1">
+                <span class="p2p-num">01</span>
+                <div class="p2p-text">
                   <h4>Problem Identification</h4>
                   <p>Spotting everyday friction, manual inefficiencies, or broken workflows.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="2">
-                <div class="p2p-badge">02</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="2">
+                <span class="p2p-num">02</span>
+                <div class="p2p-text">
                   <h4>User Research</h4>
-                  <p>Understanding stakeholder constraints, field conditions, and true pain points.</p>
+                  <p>Observing mandi operators and municipal inspectors in the field.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="3">
-                <div class="p2p-badge">03</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="3">
+                <span class="p2p-num">03</span>
+                <div class="p2p-text">
                   <h4>Define Core Problem</h4>
-                  <p>Distilling complexity into a clear, single, testable problem statement.</p>
+                  <p>Distilling complexity into a single, falsifiable problem statement.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="4">
-                <div class="p2p-badge">04</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="4">
+                <span class="p2p-num">04</span>
+                <div class="p2p-text">
                   <h4>Explore Solutions</h4>
-                  <p>Brainstorming low-friction interventions and technical trade-offs.</p>
+                  <p>Evaluating technical trade-offs between speed, cost, and auditability.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="5">
-                <div class="p2p-badge">05</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="5">
+                <span class="p2p-num">05</span>
+                <div class="p2p-text">
                   <h4>Prototype</h4>
-                  <p>Crafting interactive flows, mockups, or lightweight code proofs of concept.</p>
+                  <p>Building minimal testable artifacts and inference proof-of-concepts.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="6">
-                <div class="p2p-badge">06</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="6">
+                <span class="p2p-num">06</span>
+                <div class="p2p-text">
                   <h4>Test &amp; Iterate</h4>
-                  <p>Testing with real peers or users, measuring clarity vs confusion.</p>
+                  <p>Measuring false positive rates and edge-case clarity with stakeholders.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="7">
-                <div class="p2p-badge">07</div>
-                <div class="p2p-content">
-                  <h4>Build Minimum Viable Product</h4>
-                  <p>Writing clean, auditable code with standard frameworks and solid documentation.</p>
+              <div class="p2p-step-row" data-step="7">
+                <span class="p2p-num">07</span>
+                <div class="p2p-text">
+                  <h4>Build Production MVP</h4>
+                  <p>Shipping clean, typed code with reproducible schemas and solid docs.</p>
                 </div>
               </div>
-              <div class="p2p-step" data-step="8">
-                <div class="p2p-badge">08</div>
-                <div class="p2p-content">
+              <div class="p2p-step-row" data-step="8">
+                <span class="p2p-num">08</span>
+                <div class="p2p-text">
                   <h4>Learn from Feedback</h4>
-                  <p>Analyzing usage data, edge cases, and feeding insights into next iteration.</p>
+                  <p>Analyzing telemetry and post-mortems to guide subsequent iterations.</p>
                 </div>
               </div>
             </div>
 
-            <div class="framework-detail-card" id="framework-detail">
-              <span class="detail-label">FRAMEWORK DEEP DIVE</span>
+            <div class="framework-detail-column" id="framework-detail">
+              <span class="matrix-label">FRAMEWORK SPECIFICATION</span>
               <h3 id="fw-detail-title">01 &bull; Problem Identification</h3>
               <p id="fw-detail-desc">
-                Great products don't start with code or hype; they start with observing friction. In projects like <strong>AgriInspect</strong> and <strong>Converge</strong>, the focus is on unaddressed real-world inefficiencies—such as subjective onion grading at mandis, or civic tickets closed without photographic proof.
+                Great products do not start with code or hype; they start with observing friction. In projects like <strong>AgriInspect</strong> and <strong>Converge</strong>, the focus is on unaddressed real-world inefficiencies—such as subjective onion grading at mandis, or civic complaints closed without photographic proof.
               </p>
-              <div class="fw-principle">
+              <div class="cold-principle-tag">
                 <strong>Core Rule:</strong> Fall in love with the problem, not the first solution.
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ==================== DIAGRAM 3: PORTFOLIO ARCHITECTURE ==================== -->
+        <!-- ==================== FLOWCHART C: PORTFOLIO ARCHITECTURE ==================== -->
         <div id="diagram-portfolio-panel" class="diagram-panel" role="tabpanel" tabindex="0">
-          <div class="flowchart-meta-bar">
-            <div class="meta-left">
-              <span class="repo-badge">Behind the Build</span>
-              <span class="meta-statement">How SARTHAK.EXE operates: zero-build runtime, live API integration &amp; SVG animations</span>
+          <div class="flowchart-control-strip">
+            <div class="flowchart-title-left">
+              <span class="cold-pill">Portfolio Architecture</span>
+              <span class="flowchart-subhead">Zero-build runtime, live API integration &amp; SVG animations</span>
             </div>
           </div>
 
-          <div class="architecture-flow-wrapper">
-            <div class="arch-node-box">
-              <div class="arch-num">01</div>
-              <h4>Visitor Access</h4>
-              <p>Direct browser request &bull; zero build step required.</p>
+          <div class="arch-schematic-grid">
+            <div class="schematic-node">
+              <span class="node-index">01</span>
+              <h4>Browser Request</h4>
+              <p>Direct HTML5/CSS3 parse with zero compilation delay.</p>
             </div>
-            <div class="arch-connector">&rarr;</div>
-            <div class="arch-node-box">
-              <div class="arch-num">02</div>
-              <h4>GSAP &amp; SVG Motion</h4>
-              <p>ScrollTrigger hooks, vector particle paths &bull; responsive physics.</p>
+            <div class="schematic-arrow">&rarr;</div>
+            <div class="schematic-node">
+              <span class="node-index">02</span>
+              <h4>GSAP Motion Engine</h4>
+              <p>ScrollTrigger hooks, vector particle updates &amp; theme states.</p>
             </div>
-            <div class="arch-connector">&rarr;</div>
-            <div class="arch-node-box">
-              <div class="arch-num">03</div>
+            <div class="schematic-arrow">&rarr;</div>
+            <div class="schematic-node">
+              <span class="node-index">03</span>
               <h4>GitHub Public API</h4>
-              <p>Fetches real repo metadata from <code>/users/srtkio/repos</code>.</p>
+              <p>Live repository telemetry from <code>/users/srtkio/repos</code>.</p>
             </div>
-            <div class="arch-connector">&rarr;</div>
-            <div class="arch-node-box">
-              <div class="arch-num">04</div>
-              <h4>Interactive Views</h4>
-              <p>Live repo cards, filter engine, deep-dive modal case studies.</p>
+            <div class="schematic-arrow">&rarr;</div>
+            <div class="schematic-node">
+              <span class="node-index">04</span>
+              <h4>Case Study Engine</h4>
+              <p>Accessible modal dialogs for deep technical review.</p>
             </div>
           </div>
         </div>
@@ -597,170 +604,187 @@
     </section>
 
     <!-- =========================================================
-         5. FEATURED PROJECTS & CASE STUDIES
-         Verified Hackathon Winners, Real Repos & Deep Case Studies
+         5. SELECTED WORK & PROJECT CARDS
+         Cold Hairline Card Design, Verified Repositories
     ========================================================= -->
     <section id="projects" class="section projects-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <span class="section-label">Engineered Work</span>
-          <h2 class="section-title">Things I've built &amp; explored.</h2>
-          <p class="section-subtitle">
-            High-impact hackathon projects, AI systems, and verified software applications. Click any card to launch the comprehensive case study.
+        <div class="section-meta-header" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 03 / SELECTED WORK</span>
+          <h2 class="section-editorial-title">Engineered Projects.</h2>
+          <p class="section-editorial-sub">
+            Verified hackathon winners, agricultural AI, and civic resolution platforms. Click any card to launch the comprehensive case study.
           </p>
         </div>
 
-        <div class="projects-grid">
-          <!-- Featured Project 1: AgriGrade / AgriInspect -->
-          <article class="project-card project-card-spotlight" data-project-id="agrigrade" data-animate="fade-up">
-            <div class="project-card-header">
-              <div class="badge-group">
-                <span class="project-badge status-progress">SIH 2026 Core MVP</span>
-                <span class="project-badge badge-ai">Computer Vision</span>
+        <div class="cold-projects-grid">
+          <!-- Spotlight Card 1: AgriGrade -->
+          <article class="cold-project-card card-spotlight" data-project-id="agrigrade" data-reveal="fade">
+            <div class="card-header-bar">
+              <div class="badge-cluster">
+                <span class="cold-badge badge-sih">SIH 2026 Core MVP</span>
+                <span class="cold-badge">Computer Vision</span>
               </div>
-              <span class="project-category">Agricultural AI Inspection</span>
+              <span class="card-meta-category">Agricultural AI Inspection</span>
             </div>
-            <h3 class="project-title">AgriGrade (AgriInspect)</h3>
-            <p class="project-description">
-              AI-assisted onion quality inspection platform engineered for procurement centres. Uses smartphone computer vision to classify surface defects, identify sprouting, estimate calibrated bulb sizes, and enforce decoupled AGMARK/BIS rules with human-in-the-loop auditability.
+            
+            <h3 class="card-title-lg">AgriGrade (AgriInspect)</h3>
+            <p class="card-narrative">
+              AI-assisted onion quality inspection platform engineered for procurement centres. Uses smartphone computer vision to classify surface rot/cuts, detect premature neck sprouting, estimate calibrated bulb sizes, and enforce decoupled AGMARK/BIS rules with human-in-the-loop auditability.
             </p>
-            <div class="project-tags">
-              <span class="pill">Computer Vision</span>
-              <span class="pill">Rules Engine</span>
-              <span class="pill">SIH 2026</span>
-              <span class="pill">Python</span>
-              <span class="pill">Inspection Workflow</span>
+            
+            <div class="card-tag-cluster">
+              <span class="cold-pill">Computer Vision</span>
+              <span class="cold-pill">AGMARK / BIS Rules</span>
+              <span class="cold-pill">Python</span>
+              <span class="cold-pill">SIH 2026</span>
+              <span class="cold-pill">Smartphone RGB</span>
             </div>
-            <div class="project-footer">
-              <button class="btn-case-study" aria-label="Open AgriGrade Case Study">
+            
+            <div class="card-action-footer">
+              <button class="cold-link-btn btn-case-study" aria-label="Open AgriGrade Case Study">
                 <span>View Full Case Study</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="arrow-glyph">&rarr;</span>
               </button>
-              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="GitHub Repository">
-                <span>github.com/srtkio/AgriGrade &nearr;</span>
+              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Open repository">
+                github.com/srtkio/AgriGrade &nearr;
               </a>
             </div>
           </article>
 
-          <!-- Featured Project 2: RAGSeal -->
-          <article class="project-card" data-project-id="ragseal" data-animate="fade-up">
-            <div class="project-card-header">
-              <div class="badge-group">
-                <span class="project-badge status-winner">Hypnexis '26 Winner &bull; 3rd Place</span>
-                <span class="project-badge badge-ai">RAG Evaluation</span>
+          <!-- Card 2: RAGSeal -->
+          <article class="cold-project-card" data-project-id="ragseal" data-reveal="fade">
+            <div class="card-header-bar">
+              <div class="badge-cluster">
+                <span class="cold-badge badge-winner">Hypnexis '26 Winner &bull; 3rd Place</span>
+                <span class="cold-badge">RAG Evaluation</span>
               </div>
-              <span class="project-category">AI Attribution Testing</span>
+              <span class="card-meta-category">AI Attribution Testing</span>
             </div>
-            <h3 class="project-title">RAGSeal</h3>
-            <p class="project-description">
+
+            <h3 class="card-title-lg">RAGSeal</h3>
+            <p class="card-narrative">
               "When a RAG answer is wrong, RAGSeal proves whether the retriever or generator caused it." Built at Hypnexis '26 by Team Monster Energy (3rd place among 489 teams, ₹50,000 prize). Implements attribution grading across local Ollama models and hosted Groq endpoints.
             </p>
-            <div class="project-tags">
-              <span class="pill">FastAPI</span>
-              <span class="pill">React 18</span>
-              <span class="pill">TypeScript</span>
-              <span class="pill">Ollama</span>
-              <span class="pill">Groq</span>
-              <span class="pill">SQLite Vector</span>
+
+            <div class="card-tag-cluster">
+              <span class="cold-pill">FastAPI</span>
+              <span class="cold-pill">React 18</span>
+              <span class="cold-pill">TypeScript</span>
+              <span class="cold-pill">Ollama</span>
+              <span class="cold-pill">Groq</span>
             </div>
-            <div class="project-footer">
-              <button class="btn-case-study" aria-label="Open RAGSeal Case Study">
+
+            <div class="card-action-footer">
+              <button class="cold-link-btn btn-case-study" aria-label="Open RAGSeal Case Study">
                 <span>View Full Case Study</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="arrow-glyph">&rarr;</span>
               </button>
-              <a href="https://ragseal.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Live Demo">
-                <span>ragseal.vercel.app &nearr;</span>
+              <a href="https://ragseal.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Live application">
+                ragseal.vercel.app &nearr;
               </a>
             </div>
           </article>
 
-          <!-- Featured Project 3: CONVERGE -->
-          <article class="project-card" data-project-id="converge" data-animate="fade-up">
-            <div class="project-card-header">
-              <div class="badge-group">
-                <span class="project-badge status-deployed">Live Deployment</span>
-                <span class="project-badge badge-web">Civic Tech</span>
+          <!-- Card 3: CONVERGE -->
+          <article class="cold-project-card" data-project-id="converge" data-reveal="fade">
+            <div class="card-header-bar">
+              <div class="badge-cluster">
+                <span class="cold-badge badge-deployed">Live Deployment</span>
+                <span class="cold-badge">Civic Tech</span>
               </div>
-              <span class="project-category">Smart Cities Platform</span>
+              <span class="card-meta-category">Smart Cities Platform</span>
             </div>
-            <h3 class="project-title">CONVERGE</h3>
-            <p class="project-description">
+
+            <h3 class="card-title-lg">CONVERGE</h3>
+            <p class="card-narrative">
               "City complaints, closed only when they're really fixed." Civic complaint platform piloted in Murthal–Sonipat (GT Road / NH-44). Groups duplicate citizen reports, links shared root causes, monitors SLA deadlines, escalates slip-ups, and verifies resolution evidence.
             </p>
-            <div class="project-tags">
-              <span class="pill">Civic Resolution</span>
-              <span class="pill">SLA Escalation</span>
-              <span class="pill">Operator Dashboard</span>
-              <span class="pill">Audit Trail</span>
+
+            <div class="card-tag-cluster">
+              <span class="cold-pill">Civic Resolution</span>
+              <span class="cold-pill">SLA Escalation</span>
+              <span class="cold-pill">Operator Dashboard</span>
+              <span class="cold-pill">Audit Trail</span>
             </div>
-            <div class="project-footer">
-              <button class="btn-case-study" aria-label="Open CONVERGE Case Study">
+
+            <div class="card-action-footer">
+              <button class="cold-link-btn btn-case-study" aria-label="Open CONVERGE Case Study">
                 <span>View Full Case Study</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="arrow-glyph">&rarr;</span>
               </button>
-              <a href="https://converge-web-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Live Operator Demo">
-                <span>converge-web-ten.vercel.app &nearr;</span>
+              <a href="https://converge-web-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Operator dashboard">
+                converge-web-ten.vercel.app &nearr;
               </a>
             </div>
           </article>
 
           <!-- Concept 1: WhatsApp-to-Calendar -->
-          <article class="project-card" data-project-id="w2c" data-animate="fade-up">
-            <div class="project-card-header">
-              <span class="project-badge status-planning">MVP Planning</span>
-              <span class="project-category">Product Concept</span>
+          <article class="cold-project-card" data-project-id="w2c" data-reveal="fade">
+            <div class="card-header-bar">
+              <span class="cold-badge badge-concept">Concept / MVP Planning</span>
+              <span class="card-meta-category">Productivity</span>
             </div>
-            <h3 class="project-title">WhatsApp-to-Calendar</h3>
-            <p class="project-description">
+
+            <h3 class="card-title-lg">WhatsApp-to-Calendar</h3>
+            <p class="card-narrative">
               Exploring an automated workflow that parses schedule commitments, dates, and event details shared through WhatsApp chats directly into calendar invitations, reducing human planning friction.
             </p>
-            <div class="project-tags">
-              <span class="pill">Workflow</span>
-              <span class="pill">Productivity</span>
-              <span class="pill">Natural Language</span>
+
+            <div class="card-tag-cluster">
+              <span class="cold-pill">Workflow</span>
+              <span class="cold-pill">Calendar Automation</span>
+              <span class="cold-pill">NLP</span>
             </div>
-            <div class="project-footer">
-              <span class="status-placeholder">Concept Stage &bull; Spec Drafted</span>
+
+            <div class="card-action-footer">
+              <span class="cold-status-text">Concept Stage &bull; Specification Drafted</span>
             </div>
           </article>
 
-          <!-- Concept 2: WTFit - Smart Wardrobe -->
-          <article class="project-card" data-project-id="wtfit" data-animate="fade-up">
-            <div class="project-card-header">
-              <span class="project-badge status-concept">Product Concept</span>
-              <span class="project-category">Lifestyle &amp; Tech</span>
+          <!-- Concept 2: WTFit -->
+          <article class="cold-project-card" data-project-id="wtfit" data-reveal="fade">
+            <div class="card-header-bar">
+              <span class="cold-badge badge-concept">Product Concept</span>
+              <span class="card-meta-category">Lifestyle &amp; Tech</span>
             </div>
-            <h3 class="project-title">WTFit - Smart Wardrobe</h3>
-            <p class="project-description">
+
+            <h3 class="card-title-lg">WTFit - Smart Wardrobe</h3>
+            <p class="card-narrative">
               A smart wardrobe concept focused on helping users catalog clothing items, match outfits based on weather and occasion, and organize apparel sustainably without decision fatigue.
             </p>
-            <div class="project-tags">
-              <span class="pill">Smart Wardrobe</span>
-              <span class="pill">UX Modeling</span>
-              <span class="pill">Design Concept</span>
+
+            <div class="card-tag-cluster">
+              <span class="cold-pill">Smart Wardrobe</span>
+              <span class="cold-pill">UX Modeling</span>
+              <span class="cold-pill">Apparel Index</span>
             </div>
-            <div class="project-footer">
-              <span class="status-placeholder">Concept Stage &bull; Early Exploration</span>
+
+            <div class="card-action-footer">
+              <span class="cold-status-text">Concept Stage &bull; UX Research</span>
             </div>
           </article>
 
           <!-- Concept 3: Zender & GPS Shoes -->
-          <article class="project-card" data-project-id="zender" data-animate="fade-up">
-            <div class="project-card-header">
-              <span class="project-badge status-pitch">Pitch Concept</span>
-              <span class="project-category">Explorations</span>
+          <article class="cold-project-card" data-project-id="zender" data-reveal="fade">
+            <div class="card-header-bar">
+              <span class="cold-badge badge-concept">Pitch Concept</span>
+              <span class="card-meta-category">Explorations</span>
             </div>
-            <h3 class="project-title">Zender &amp; GPS Shoes</h3>
-            <p class="project-description">
+
+            <h3 class="card-title-lg">Zender &amp; GPS Shoes</h3>
+            <p class="card-narrative">
               Dual design concepts: <strong>Zender</strong> (a social travel community platform for route-sharing) and <strong>GPS Shoes</strong> (haptic location-aware footwear assisting visually impaired travelers in unfamiliar terrain).
             </p>
-            <div class="project-tags">
-              <span class="pill">Travel Tech</span>
-              <span class="pill">Assistive Hardware</span>
-              <span class="pill">Pitch Decks</span>
+
+            <div class="card-tag-cluster">
+              <span class="cold-pill">Travel Community</span>
+              <span class="cold-pill">Assistive Hardware</span>
+              <span class="cold-pill">Pitch Deck</span>
             </div>
-            <div class="project-footer">
-              <span class="status-placeholder">Pitch Deck &bull; Research Phase</span>
+
+            <div class="card-action-footer">
+              <span class="cold-status-text">Pitch Deck &bull; Early Exploration</span>
             </div>
           </article>
         </div>
@@ -768,74 +792,70 @@
     </section>
 
     <!-- =========================================================
-         6. LIVE GITHUB INTEGRATION
-         Real GitHub REST API, repository filters, stars/forks & error handling
+         6. LIVE GITHUB REPOSITORIES
+         Real REST API, Category Filters, Language Markers
     ========================================================= -->
     <section id="github" class="section github-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <div class="github-header-top">
+        <div class="section-meta-header" data-reveal="fade">
+          <div class="github-title-cluster">
             <div>
-              <span class="section-label">Real-Time Open Source</span>
-              <h2 class="section-title">Live GitHub Repositories.</h2>
+              <span class="section-tag-mono">SECTION 04 / OPEN SOURCE TELEMETRY</span>
+              <h2 class="section-editorial-title">Live GitHub Repositories.</h2>
             </div>
-            <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-              <span>View @srtkio on GitHub</span>
+            <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="btn btn-cold-secondary btn-sm">
+              <span>View @srtkio on GitHub &nearr;</span>
             </a>
           </div>
-          <p class="section-subtitle">
+          <p class="section-editorial-sub">
             Synchronized directly with <code>api.github.com/users/srtkio/repos</code>. Real repository metadata, star counts, branches, and languages.
           </p>
         </div>
 
         <!-- Filter Controls -->
-        <div class="repo-filter-bar" data-animate="fade-up">
-          <button class="repo-filter-btn active" data-filter="all">All Repositories</button>
-          <button class="repo-filter-btn" data-filter="ai">AI &amp; Computer Vision</button>
-          <button class="repo-filter-btn" data-filter="systems">Systems &amp; Web</button>
-          <button class="repo-filter-btn" data-filter="academic">Coursework &amp; Tests</button>
+        <div class="cold-filter-bar" data-reveal="fade">
+          <button class="cold-filter-btn active" data-filter="all">All Repositories</button>
+          <button class="cold-filter-btn" data-filter="ai">AI &amp; Computer Vision</button>
+          <button class="cold-filter-btn" data-filter="systems">Systems &amp; Web</button>
+          <button class="cold-filter-btn" data-filter="academic">Coursework &amp; Tests</button>
         </div>
 
-        <!-- Live Repository Grid (Populated dynamically by app.js) -->
-        <div class="github-repo-grid" id="github-repo-grid" aria-live="polite">
-          <!-- Loading Skeleton -->
-          <div class="repo-card repo-skeleton">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line desc"></div>
-            <div class="skeleton-line meta"></div>
+        <!-- Repo Grid -->
+        <div class="cold-repo-grid" id="github-repo-grid" aria-live="polite">
+          <div class="cold-repo-card repo-skeleton">
+            <div class="skeleton-bar title"></div>
+            <div class="skeleton-bar desc"></div>
+            <div class="skeleton-bar meta"></div>
           </div>
-          <div class="repo-card repo-skeleton">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line desc"></div>
-            <div class="skeleton-line meta"></div>
+          <div class="cold-repo-card repo-skeleton">
+            <div class="skeleton-bar title"></div>
+            <div class="skeleton-bar desc"></div>
+            <div class="skeleton-bar meta"></div>
           </div>
-          <div class="repo-card repo-skeleton">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line desc"></div>
-            <div class="skeleton-line meta"></div>
+          <div class="cold-repo-card repo-skeleton">
+            <div class="skeleton-bar title"></div>
+            <div class="skeleton-bar desc"></div>
+            <div class="skeleton-bar meta"></div>
           </div>
         </div>
 
-        <!-- GitHub Public Stats Banner -->
-        <div class="github-activity-strip" data-animate="fade-up">
-          <div class="activity-stat">
-            <span class="act-val">100%</span>
-            <span class="act-label">Verified Repositories</span>
+        <!-- Metric Strip -->
+        <div class="cold-metric-strip" data-reveal="fade">
+          <div class="metric-cell">
+            <span class="metric-val">100%</span>
+            <span class="metric-lbl">VERIFIED CODEBASE</span>
           </div>
-          <div class="activity-stat">
-            <span class="act-val">SIH '26</span>
-            <span class="act-label">AgriInspect Active Core</span>
+          <div class="metric-cell">
+            <span class="metric-val">SIH '26</span>
+            <span class="metric-lbl">AGRIINSPECT CORE</span>
           </div>
-          <div class="activity-stat">
-            <span class="act-val">MIT</span>
-            <span class="act-label">Open Source License</span>
+          <div class="metric-cell">
+            <span class="metric-val">MIT</span>
+            <span class="metric-lbl">OPEN SOURCE LICENSE</span>
           </div>
-          <div class="activity-stat">
-            <span class="act-val">Public API</span>
-            <span class="act-label">Real-Time Client Telemetry</span>
+          <div class="metric-cell">
+            <span class="metric-val">REST API</span>
+            <span class="metric-lbl">CLIENT TELEMETRY</span>
           </div>
         </div>
       </div>
@@ -843,125 +863,108 @@
 
     <!-- =========================================================
          7. ANIMATED JOURNEY TIMELINE
-         Scroll-linked SVG path, progressive node revelation
     ========================================================= -->
     <section id="journey" class="section journey-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <span class="section-label">Milestones &amp; Evolution</span>
-          <h2 class="section-title">The journey so far.</h2>
-          <p class="section-subtitle">
+        <div class="section-meta-header" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 05 / CHRONOLOGY</span>
+          <h2 class="section-editorial-title">The journey so far.</h2>
+          <p class="section-editorial-sub">
             For me, college is not just about completing a degree. It is about meeting people, exploring new fields, learning to work in teams, and discovering what I enjoy doing.
           </p>
         </div>
 
-        <div class="animated-timeline" id="animated-timeline">
-          <!-- Timeline Vertical SVG Path -->
-          <div class="timeline-svg-container" aria-hidden="true">
-            <svg class="timeline-svg" preserveAspectRatio="none">
-              <line class="timeline-line-base" x1="12" y1="0" x2="12" y2="100%" />
-              <line class="timeline-line-progress" id="timeline-progress-line" x1="12" y1="0" x2="12" y2="0" />
-            </svg>
+        <div class="cold-timeline-wrapper" id="animated-timeline">
+          <div class="timeline-hairline" aria-hidden="true">
+            <div class="timeline-hairline-progress" id="timeline-progress-line"></div>
           </div>
 
-          <div class="timeline-entries-list">
-            <!-- Timeline Item 1 -->
-            <article class="timeline-entry" data-category="education" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-edu">Education</span>
-                  <span class="entry-time">College Journey &bull; Ongoing</span>
+          <div class="timeline-items-flow">
+            <!-- 01: Starting B.Tech -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-edu">Education</span>
+                  <span class="timeline-timestamp">College Journey &bull; Ongoing</span>
                 </div>
-                <h3 class="entry-title">Starting B.Tech at Newton School of Technology</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">Starting B.Tech at Newton School of Technology</h3>
+                <p class="timeline-node-desc">
                   Admitted to the B.Tech program. Began developing strong engineering fundamentals, exploring algorithmic thinking, data structures, and the broader tech landscape.
                 </p>
               </div>
             </article>
 
-            <!-- Timeline Item 2 -->
-            <article class="timeline-entry" data-category="competitions" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-hackathon">Competition Winner</span>
-                  <span class="entry-time">Hypnexis '26</span>
+            <!-- 02: Hypnexis '26 Winner -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot dot-win"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-hackathon">Competition Winner</span>
+                  <span class="timeline-timestamp">Hypnexis '26</span>
                 </div>
-                <h3 class="entry-title">Hypnexis '26 &bull; 3rd Place with Team Monster Energy</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">Hypnexis '26 &bull; 3rd Place with Team Monster Energy</h3>
+                <p class="timeline-node-desc">
                   Won 3rd place among 489 competitive teams (₹50,000 cash prize) with <strong>RAGSeal</strong>—an AI evaluation tool proving whether retrieval or generator components fail during RAG inference errors.
                 </p>
               </div>
             </article>
 
-            <!-- Timeline Item 3 -->
-            <article class="timeline-entry" data-category="product" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-product">Product &amp; Content</span>
-                  <span class="entry-time">Ongoing</span>
+            <!-- 03: Arthakram -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-product">Product &amp; Content</span>
+                  <span class="timeline-timestamp">Ongoing</span>
                 </div>
-                <h3 class="entry-title">Exploring Product Management through Arthakram</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">Exploring Product Management through Arthakram</h3>
+                <p class="timeline-node-desc">
                   Active involvement with Arthakram, learning how product decisions shape real user outcomes, studying product breakdowns, and contributing to marketing, communication, and content initiatives.
                 </p>
               </div>
             </article>
 
-            <!-- Timeline Item 4 -->
-            <article class="timeline-entry" data-category="product" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-product">Product Initiative</span>
-                  <span class="entry-time">Ongoing</span>
+            <!-- 04: Product Guys -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-product">Product Initiative</span>
+                  <span class="timeline-timestamp">Ongoing</span>
                 </div>
-                <h3 class="entry-title">Product Guys Initiative</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">Product Guys Initiative</h3>
+                <p class="timeline-node-desc">
                   Collaborative initiative making product concepts accessible through structured case studies, product teardowns, UX evaluations, and interactive product challenges.
                 </p>
               </div>
             </article>
 
-            <!-- Timeline Item 5 -->
-            <article class="timeline-entry" data-category="leadership" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-mun">Diplomacy &amp; Organizing</span>
-                  <span class="entry-time">MasterGrade MUN 2026</span>
+            <!-- 05: MasterGrade MUN 2026 -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-mun">Diplomacy &amp; Organizing</span>
+                  <span class="timeline-timestamp">MasterGrade MUN 2026</span>
                 </div>
-                <h3 class="entry-title">MasterGrade MUN 2026 Organizing Committee</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">MasterGrade MUN 2026 Organizing Committee</h3>
+                <p class="timeline-node-desc">
                   Contributing to organizing and communication-related work around a Model United Nations event, including coordination, promotional material, and delegate-facing communications.
                 </p>
               </div>
             </article>
 
-            <!-- Timeline Item 6 -->
-            <article class="timeline-entry" data-category="competitions" data-animate="fade-up">
-              <div class="timeline-marker">
-                <span class="marker-dot"></span>
-              </div>
-              <div class="timeline-card">
-                <div class="timeline-card-header">
-                  <span class="entry-category-badge cat-hackathon">Hackathon Sprint</span>
-                  <span class="entry-time">Fetch-a-thon 3.0 &bull; BITSoM Paradox</span>
+            <!-- 06: Hackathons & Challenges -->
+            <article class="cold-timeline-card" data-reveal="fade">
+              <div class="card-timeline-indicator"><span class="cold-dot"></span></div>
+              <div class="timeline-card-inner">
+                <div class="timeline-meta-bar">
+                  <span class="tag-cat cat-hackathon">Hackathon Sprint</span>
+                  <span class="timeline-timestamp">Fetch-a-thon 3.0 &bull; BITSoM Paradox</span>
                 </div>
-                <h3 class="entry-title">Collegiate Hackathons &amp; Challenges</h3>
-                <p class="entry-desc">
+                <h3 class="timeline-node-title">Collegiate Hackathons &amp; Challenges</h3>
+                <p class="timeline-node-desc">
                   Participated in Fetch-a-thon 3.0 and Product Paradox (BITSoM Top 6 cohort). Continuously learning to pitch solutions, work under tight sprint deadlines, and iterate rapidly.
                 </p>
               </div>
@@ -972,67 +975,67 @@
     </section>
 
     <!-- =========================================================
-         8. HACKATHONS & ACHIEVEMENTS (VERIFIED & AUDITED)
+         8. HACKATHONS & ACHIEVEMENTS (AUDITED MILESTONES)
     ========================================================= -->
     <section id="achievements" class="section achievements-section">
       <div class="container">
-        <div class="section-header" data-animate="fade-up">
-          <span class="section-label">Competition Record</span>
-          <h2 class="section-title">Experiences worth sharing.</h2>
-          <p class="section-subtitle">
+        <div class="section-meta-header" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 06 / COMPETITION RECORD</span>
+          <h2 class="section-editorial-title">Experiences worth sharing.</h2>
+          <p class="section-editorial-sub">
             Verified team accomplishments and competitive problem-solving milestones.
           </p>
         </div>
 
-        <div class="achievements-grid">
-          <!-- Achievement 1 -->
-          <article class="achievement-card highlight-win" data-animate="fade-up">
-            <div class="achievement-header">
-              <span class="achievement-badge team-badge">3rd Place Winner</span>
-              <span class="achievement-sub">Team Monster Energy</span>
+        <div class="cold-achievements-grid">
+          <!-- 01 -->
+          <article class="cold-achievement-box highlight-box" data-reveal="fade">
+            <div class="ach-header">
+              <span class="ach-badge badge-gold">3rd Place Winner</span>
+              <span class="ach-sub">Team Monster Energy</span>
             </div>
-            <h3 class="achievement-title">Hypnexis '26</h3>
-            <p class="achievement-result">3rd place among 489 teams &bull; ₹50,000 cash prize</p>
-            <p class="achievement-note">
+            <h3 class="ach-title">Hypnexis '26</h3>
+            <p class="ach-metric">3rd place among 489 teams &bull; ₹50,000 cash prize</p>
+            <p class="ach-detail">
               Built <strong>RAGSeal</strong>, an automated evaluator that attributes errors in Retrieval-Augmented Generation to either the vector retriever or LLM generator.
             </p>
           </article>
 
-          <!-- Achievement 2 -->
-          <article class="achievement-card" data-animate="fade-up">
-            <div class="achievement-header">
-              <span class="achievement-badge team-badge">Top 6 Finalist Cohort</span>
-              <span class="achievement-sub">BITSoM Product Case</span>
+          <!-- 02 -->
+          <article class="cold-achievement-box" data-reveal="fade">
+            <div class="ach-header">
+              <span class="ach-badge">Top 6 Finalist Cohort</span>
+              <span class="ach-sub">BITSoM Product Case</span>
             </div>
-            <h3 class="achievement-title">Product Paradox, BITSoM</h3>
-            <p class="achievement-result">Top 6 Finalist Teams</p>
-            <p class="achievement-note">
+            <h3 class="ach-title">Product Paradox, BITSoM</h3>
+            <p class="ach-metric">Top 6 Finalist Teams</p>
+            <p class="ach-detail">
               Evaluated strategic product market fit, monetization trade-offs, and growth levers in a national collegiate business case competition.
             </p>
           </article>
 
-          <!-- Achievement 3 -->
-          <article class="achievement-card" data-animate="fade-up">
-            <div class="achievement-header">
-              <span class="achievement-badge challenge-badge">Rapid Sprint</span>
-              <span class="achievement-sub">Developer Hackathon</span>
+          <!-- 03 -->
+          <article class="cold-achievement-box" data-reveal="fade">
+            <div class="ach-header">
+              <span class="ach-badge">Rapid Sprint</span>
+              <span class="ach-sub">Developer Hackathon</span>
             </div>
-            <h3 class="achievement-title">Fetch-a-thon 3.0</h3>
-            <p class="achievement-result">Sprint Participant</p>
-            <p class="achievement-note">
+            <h3 class="ach-title">Fetch-a-thon 3.0</h3>
+            <p class="ach-metric">Sprint Participant</p>
+            <p class="ach-detail">
               Engineered rapid prototypes under strict time constraints, refining team alignment, API integration, and user-centric problem solving.
             </p>
           </article>
 
-          <!-- Achievement 4 -->
-          <article class="achievement-card" data-animate="fade-up">
-            <div class="achievement-header">
-              <span class="achievement-badge challenge-badge">National Level</span>
-              <span class="achievement-sub">Smart India Hackathon</span>
+          <!-- 04 -->
+          <article class="cold-achievement-box" data-reveal="fade">
+            <div class="ach-header">
+              <span class="ach-badge">National Level</span>
+              <span class="ach-sub">Smart India Hackathon</span>
             </div>
-            <h3 class="achievement-title">SIH 2026: AgriInspect</h3>
-            <p class="achievement-result">Problem Statement SIH26031</p>
-            <p class="achievement-note">
+            <h3 class="ach-title">SIH 2026: AgriInspect</h3>
+            <p class="ach-metric">Problem Statement SIH26031</p>
+            <p class="ach-detail">
               Leading the development of <strong>AgriInspect</strong> for AI-assisted onion quality grading with computer vision, explainable rules, and human-in-the-loop oversight.
             </p>
           </article>
@@ -1041,46 +1044,45 @@
     </section>
 
     <!-- =========================================================
-         9. CONTACT SECTION
-         Real Email, Real GitHub, Verified Links
+         9. CONTACT SECTION: EXPANSIVE EDITORIAL TERMINAL
     ========================================================= -->
     <section id="contact" class="section contact-section">
       <div class="container contact-container">
-        <div class="contact-card" data-animate="fade-up">
-          <span class="section-label">Get in Touch</span>
-          <h2 class="section-title">Let's connect.</h2>
-          <p class="contact-text">
+        <div class="cold-contact-wrapper" data-reveal="fade">
+          <span class="section-tag-mono">SECTION 07 / GET IN TOUCH</span>
+          <h2 class="contact-giant-title">Let's connect.</h2>
+          <p class="contact-narrative">
             I'm always open to connecting with people who enjoy building things, exploring ideas, discussing AI systems, or learning something new.
           </p>
 
-          <div class="contact-links">
+          <div class="cold-contact-links">
             <!-- Direct Email -->
-            <a href="mailto:trojan5779@gmail.com" class="contact-btn">
-              <div class="contact-btn-left">
-                <span class="contact-icon">&commat;</span>
+            <a href="mailto:trojan5779@gmail.com" class="cold-contact-row">
+              <div class="contact-row-left">
+                <span class="contact-row-glyph">&commat;</span>
                 <div>
-                  <span class="contact-label">Direct Email</span>
-                  <span class="contact-hint">trojan5779@gmail.com</span>
+                  <span class="contact-row-name">Direct Email</span>
+                  <span class="contact-row-detail">trojan5779@gmail.com</span>
                 </div>
               </div>
-              <span class="contact-arrow">&rarr;</span>
+              <span class="contact-row-arrow">&rarr;</span>
             </a>
 
             <!-- GitHub Profile -->
-            <a href="https://github.com/srtkio" class="contact-btn" target="_blank" rel="noopener noreferrer">
-              <div class="contact-btn-left">
-                <span class="contact-icon">&gt;_</span>
+            <a href="https://github.com/srtkio" class="cold-contact-row" target="_blank" rel="noopener noreferrer">
+              <div class="contact-row-left">
+                <span class="contact-row-glyph">&gt;_</span>
                 <div>
-                  <span class="contact-label">GitHub</span>
-                  <span class="contact-hint">github.com/srtkio</span>
+                  <span class="contact-row-name">GitHub Profile</span>
+                  <span class="contact-row-detail">github.com/srtkio</span>
                 </div>
               </div>
-              <span class="contact-arrow">&nearr;</span>
+              <span class="contact-row-arrow">&nearr;</span>
             </a>
 
             <!-- Institution Badge -->
-            <div class="contact-academic-badge">
-              <span>Newton School of Technology &bull; B.Tech Student</span>
+            <div class="contact-academic-tag">
+              <span>Newton School of Technology &bull; B.Tech Student &bull; Sarthak Rai</span>
             </div>
           </div>
         </div>
@@ -1089,41 +1091,41 @@
   </main>
 
   <!-- =========================================================
-       10. INTERACTIVE CASE STUDY MODAL DIALOG
+       10. ACCESSIBLE CASE STUDY MODAL DIALOG
   ========================================================= -->
-  <dialog id="case-study-modal" class="case-study-modal" aria-labelledby="modal-title">
-    <div class="modal-dialog-inner">
-      <header class="modal-header">
+  <dialog id="case-study-modal" class="cold-modal" aria-labelledby="modal-title">
+    <div class="modal-inner">
+      <header class="modal-head">
         <div>
-          <span class="modal-category" id="modal-category">Detailed Case Study</span>
-          <h2 class="modal-title" id="modal-title">Project Title</h2>
+          <span class="modal-sub-tag" id="modal-category">PROJECT DOSSIER</span>
+          <h2 class="modal-heading" id="modal-title">Project Title</h2>
         </div>
-        <button class="modal-close-btn" id="modal-close" aria-label="Close Case Study">&times;</button>
+        <button class="modal-exit-btn" id="modal-close" aria-label="Close Case Study">&times;</button>
       </header>
-      
-      <div class="modal-body" id="modal-body">
+
+      <div class="modal-scroll-body" id="modal-body">
         <!-- Dynamically injected case study details -->
       </div>
     </div>
   </dialog>
 
   <!-- Floating Back to Top Button -->
-  <button id="floating-back-to-top" class="floating-back-to-top" aria-label="Back to top of page">
+  <button id="floating-back-to-top" class="cold-back-to-top" aria-label="Back to top">
     <span aria-hidden="true">&uarr;</span>
   </button>
 
   <!-- =========================================================
-       11. FOOTER
+       11. MINIMAL ARCHITECTURAL FOOTER
   ========================================================= -->
   <footer class="site-footer">
-    <div class="container footer-content">
+    <div class="container footer-layout">
       <div class="footer-left">
-        <p class="footer-credit">SARTHAK.EXE &bull; Designed &amp; built by <strong>Sarthak Rai</strong>.</p>
-        <p class="footer-note">Newton School of Technology &bull; Student &bull; Builder &bull; 2026</p>
+        <p class="footer-primary">SARTHAK.EXE &bull; Designed &amp; built by <strong>Sarthak Rai</strong>.</p>
+        <p class="footer-secondary">Newton School of Technology &bull; Student &bull; Builder &bull; 2026</p>
       </div>
-      
+
       <div class="footer-right">
-        <a href="#home" class="back-to-top">
+        <a href="#home" class="cold-top-link">
           Back to top <span aria-hidden="true">&uarr;</span>
         </a>
       </div>
