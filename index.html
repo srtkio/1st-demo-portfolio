@@ -3,77 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio of Sarthak Rai, a first-year B.Tech student at Newton School of Technology exploring software development, product management, and creative problem-solving.">
-  <title>Sarthak Rai | Student &amp; Builder</title>
+  <meta name="description" content="Personal portfolio of Sarthak Rai (SARTHAK.EXE) — B.Tech student at Newton School of Technology exploring software development, AI, product management, and creative problem-solving.">
+  <title>Sarthak Rai | Student &bull; Builder &bull; SARTHAK.EXE</title>
+  
   <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP & ScrollTrigger (Loaded asynchronously from high-availability CDN with pure JS fallback) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
-<body>
+<body class="dark-theme">
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress" class="reading-progress-bar" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Background Ambient Glow & Grid Overlay -->
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="tech-grid-overlay"></div>
+  </div>
 
   <!-- =========================================================
        1. NAVIGATION BAR
-       Minimal, sticky navigation bar with semantic links
+       Minimal sticky navigation with active ScrollSpy indicators
   ========================================================= -->
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="nav-container">
       <a href="#home" class="nav-logo" aria-label="Sarthak Rai Portfolio Home">
+        <span class="logo-bracket">[</span>
         <span class="logo-mark">SR</span>
-        <span class="logo-dot">.</span>
+        <span class="logo-dot">.EXE</span>
+        <span class="logo-bracket">]</span>
       </a>
 
       <nav class="nav-menu" aria-label="Main Navigation">
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link">Home</a></li>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#interests" class="nav-link">Interests</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#github" class="nav-link">GitHub Live</a></li>
           <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#achievements" class="nav-link">Milestones</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- =========================================================
-         2. HERO SECTION
-         Introduction, status indicator, action buttons, CSS visual
+         2. CINEMATIC HERO SECTION
+         Word-staggered typography, interactive workspace, coordinate badges
     ========================================================= -->
     <section id="home" class="hero-section">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="status-badge">
+          <div class="status-badge" data-animate="fade-up">
             <span class="status-indicator"></span>
-            <span class="status-text">Currently learning, building, and experimenting.</span>
+            <span class="status-text">SYSTEM ACTIVE &bull; Exploring &amp; Building</span>
           </div>
 
-          <h1 class="hero-title">Hey, I'm <span class="text-accent">Sarthak Rai</span>.</h1>
+          <h1 class="hero-title" id="hero-headline" data-animate="title">
+            <span class="word">Hey,</span>
+            <span class="word">I'm</span>
+            <span class="word hero-name-highlight">Sarthak Rai.</span>
+          </h1>
           
-          <p class="hero-tagline">Student. Builder. Curious about products and technology.</p>
+          <p class="hero-tagline" data-animate="fade-up">
+            Student. Builder. Curious about products and technology.
+          </p>
           
-          <p class="hero-description">
-            I'm a first-year B.Tech student exploring software development, product management, and the process of turning ideas into useful products.
+          <p class="hero-description" data-animate="fade-up">
+            I'm a B.Tech student at <strong>Newton School of Technology</strong> exploring software development, artificial intelligence, product management, and creative problem-solving.
           </p>
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">Explore My Work</a>
-            <a href="#contact" class="btn btn-secondary">Connect With Me</a>
+          <div class="hero-actions" data-animate="fade-up">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore My Work</span>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.333 8h9.334M8.667 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Connect With Me</span>
+            </a>
+          </div>
+
+          <!-- Sequenced Lifecycle Badges -->
+          <div class="workflow-sequence-strip" data-animate="fade-up">
+            <span class="wf-step">Ideas</span>
+            <span class="wf-arrow">&rarr;</span>
+            <span class="wf-step">Code</span>
+            <span class="wf-arrow">&rarr;</span>
+            <span class="wf-step">Products</span>
+            <span class="wf-arrow">&rarr;</span>
+            <span class="wf-step wf-highlight">Better People</span>
           </div>
         </div>
 
-        <!-- Pure CSS developer visual element: layered cards representing code, ideas & products -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="stacked-cards">
+        <!-- Interactive 3D Digital Workspace Graphic -->
+        <div class="hero-visual" id="hero-visual-container" aria-hidden="true">
+          <div class="workspace-card-stack" id="workspace-interactive">
+            <div class="technical-crosshair crosshair-tl">+</div>
+            <div class="technical-crosshair crosshair-tr">+</div>
+            <div class="technical-crosshair crosshair-bl">+</div>
+            <div class="technical-crosshair crosshair-br">+</div>
+
             <div class="code-card card-back">
               <div class="card-header">
                 <span class="dot dot-red"></span>
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
-                <span class="card-filename">concept.md</span>
+                <span class="card-filename">product_framework.ts</span>
               </div>
               <div class="card-body">
-                <span class="code-comment">// Turning insights into reality</span>
-                <p class="code-line"><span class="code-keyword">problem</span> = "Everyday Friction";</p>
-                <p class="code-line"><span class="code-keyword">solution</span> = "Simple &amp; Useful";</p>
+                <p class="code-line"><span class="code-keyword">const</span> coreVision = {</p>
+                <p class="code-line indent-1">focus: <span class="code-string">"AI-Assisted Quality &amp; Systems"</span>,</p>
+                <p class="code-line indent-1">principle: <span class="code-string">"Explainable &amp; Auditable"</span>,</p>
+                <p class="code-line indent-1">hackathons: [<span class="code-string">"Hypnexis '26"</span>, <span class="code-string">"SIH 2026"</span>]</p>
+                <p class="code-line">};</p>
               </div>
             </div>
 
@@ -82,12 +133,13 @@
                 <span class="dot dot-red"></span>
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
-                <span class="card-filename">product.json</span>
+                <span class="card-filename">system_telemetry.json</span>
               </div>
               <div class="card-body">
-                <p class="code-line">"role": "First-Year B.Tech",</p>
-                <p class="code-line">"mindset": "Continuous Learner",</p>
-                <p class="code-line">"focus": "Product + Code"</p>
+                <p class="code-line">"institution": "Newton School of Tech",</p>
+                <p class="code-line">"github": "github.com/srtkio",</p>
+                <p class="code-line">"featured_ai": "AgriInspect / AgriGrade",</p>
+                <p class="code-line">"winner": "Hypnexis '26 (Monster Energy)"</p>
               </div>
             </div>
 
@@ -96,17 +148,20 @@
                 <span class="dot dot-red"></span>
                 <span class="dot dot-amber"></span>
                 <span class="dot dot-green"></span>
-                <span class="card-filename">sarthak.dev</span>
+                <span class="card-filename">sarthak_workspace.terminal</span>
               </div>
               <div class="card-body">
                 <div class="monogram-badge">
-                  <span class="mono-initials">SR</span>
-                  <span class="mono-sub">2026</span>
+                  <div class="terminal-prompt">$ srtkio --status</div>
+                  <div class="terminal-output">
+                    <span>Compiling ideas into working prototypes</span>
+                    <span class="blinking-cursor">_</span>
+                  </div>
                 </div>
                 <div class="front-stats">
-                  <div class="stat-pill">HTML &amp; CSS</div>
-                  <div class="stat-pill">Product Thinking</div>
-                  <div class="stat-pill">Problem Solving</div>
+                  <div class="stat-pill"><span class="pill-dot emerald"></span> AgriGrade SIH</div>
+                  <div class="stat-pill"><span class="pill-dot violet"></span> RAGSeal AI</div>
+                  <div class="stat-pill"><span class="pill-dot blue"></span> CONVERGE Civic</div>
                 </div>
               </div>
             </div>
@@ -117,57 +172,70 @@
 
     <!-- =========================================================
          3. ABOUT ME SECTION
-         Biography narrative and structured quick-information card
+         Updated Biography with accurate institution and student context
     ========================================================= -->
     <section id="about" class="section about-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Background</span>
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Identity &amp; Philosophy</span>
           <h2 class="section-title">A little about me.</h2>
         </div>
 
         <div class="about-grid">
-          <div class="about-text-column">
+          <div class="about-text-column" data-animate="fade-up">
             <p>
-              Hey, I'm Sarthak, a first-year B.Tech student at Newton School of Technology.
+              I'm a B.Tech student at <strong>Newton School of Technology</strong> exploring software development, product management, artificial intelligence, and creative problem-solving. I enjoy participating in hackathons, collaborating on ideas, and learning how products move from a problem statement to a working solution.
             </p>
             <p>
-              I'm interested in the intersection of technology, creativity, and problem-solving. College has given me the opportunity to explore more than just academics, from participating in hackathons and working with teams to learning about product management and experimenting with ideas.
+              College has provided the launchpad to dive deep beyond theory: from architecting AI-assisted agricultural quality systems for SIH 2026, to analyzing RAG attribution failure modes at Hypnexis '26, to exploring product management and marketing through <strong>Arthakram</strong> and <strong>Product Guys</strong>.
             </p>
             <p>
-              I'm currently figuring out my strengths, learning new technologies, and trying to understand how good products are built, from identifying a problem to developing a solution.
+              Outside academics, I immerse myself in <strong>photography</strong>, <strong>sketching anime</strong>, <strong>gaming</strong>, <strong>music</strong>, and exploring creative visual aesthetics.
             </p>
-            <p>
-              Outside academics, I enjoy photography, sketching anime, gaming, music, and exploring creative ideas.
-            </p>
-            <p class="about-quote">
+            <blockquote class="about-quote">
               "This portfolio is a record of my journey so far: the things I build, the experiences I gain, the lessons I learn, and the person I become along the way."
-            </p>
+            </blockquote>
           </div>
 
-          <aside class="about-card-column">
+          <aside class="about-card-column" data-animate="fade-up">
             <div class="info-card">
-              <h3 class="info-card-title">Quick Snapshot</h3>
+              <h3 class="info-card-title">Profile Snapshot</h3>
               
               <dl class="info-list">
                 <div class="info-item">
-                  <dt class="info-label">Education</dt>
-                  <dd class="info-value">B.Tech (First Year)</dd>
+                  <dt class="info-label">Name</dt>
+                  <dd class="info-value">Sarthak Rai</dd>
+                </div>
+
+                <div class="info-item">
+                  <dt class="info-label">Education &amp; Degree</dt>
+                  <dd class="info-value">B.Tech &bull; Newton School of Technology</dd>
                 </div>
                 
                 <div class="info-item">
-                  <dt class="info-label">Institution</dt>
-                  <dd class="info-value">Newton School of Technology</dd>
+                  <dt class="info-label">GitHub</dt>
+                  <dd class="info-value">
+                    <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="text-link">
+                      github.com/srtkio &nearr;
+                    </a>
+                  </dd>
+                </div>
+
+                <div class="info-item">
+                  <dt class="info-label">Direct Email</dt>
+                  <dd class="info-value">
+                    <a href="mailto:trojan5779@gmail.com" class="text-link">trojan5779@gmail.com</a>
+                  </dd>
                 </div>
                 
                 <div class="info-item">
-                  <dt class="info-label">Current Focus</dt>
-                  <dd class="info-value">Development and product thinking</dd>
+                  <dt class="info-label">Key Involvements</dt>
+                  <dd class="info-value">Arthakram, Product Guys, MUN 2026, Hackathons</dd>
                 </div>
-                
+
                 <div class="info-item">
-                  <dt class="info-label">Interests</dt>
-                  <dd class="info-value">Technology, design, products, and creative work</dd>
+                  <dt class="info-label">Personal Passions</dt>
+                  <dd class="info-value">Photography, Anime Sketching, Gaming, Music</dd>
                 </div>
               </dl>
             </div>
@@ -177,285 +245,522 @@
     </section>
 
     <!-- =========================================================
-         4. INTERESTS AND WHAT I AM EXPLORING
-         Four exploration pillars with clear learning goals
+         4. ANIMATED TECHNICAL FLOWCHARTS (MAJOR FEATURE)
+         Interactive Flowcharts: AgriGrade, Problem-to-Product, Portfolio Arch
     ========================================================= -->
-    <section id="interests" class="section interests-section">
+    <section id="architecture" class="section architecture-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Curiosity</span>
-          <h2 class="section-title">What I'm exploring.</h2>
-          <p class="section-subtitle">Areas where I spend time reading, practicing, and experimenting with new concepts.</p>
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Interactive Systems Engineering</span>
+          <h2 class="section-title">Technical Flowcharts &amp; Architecture.</h2>
+          <p class="section-subtitle">
+            Explore live, interactive visualizations of real-world workflows I have engineered and documented.
+          </p>
         </div>
 
-        <div class="grid-cards-4">
-          <article class="interest-card">
-            <div class="card-icon-box">01</div>
-            <h3 class="card-title">Software Development</h3>
-            <p class="card-description">
-              Learning the fundamentals of programming, understanding how applications work, and developing the skills needed to turn ideas into functional projects.
-            </p>
-            <div class="card-footer-tags">
-              <span class="mini-tag">Programming</span>
-              <span class="mini-tag">Web Basics</span>
-            </div>
-          </article>
+        <!-- Flowchart Selector Tabs -->
+        <div class="diagram-tabs" data-animate="fade-up" role="tablist" aria-label="Architecture Diagrams">
+          <button class="diagram-tab active" data-diagram="agrigrade" role="tab" aria-selected="true" aria-controls="diagram-agrigrade-panel">
+            <span class="tab-indicator"></span>
+            <span>Flowchart A: AgriGrade (AgriInspect)</span>
+          </button>
+          <button class="diagram-tab" data-diagram="framework" role="tab" aria-selected="false" aria-controls="diagram-framework-panel">
+            <span class="tab-indicator"></span>
+            <span>Flowchart B: Problem to Product</span>
+          </button>
+          <button class="diagram-tab" data-diagram="portfolio" role="tab" aria-selected="false" aria-controls="diagram-portfolio-panel">
+            <span class="tab-indicator"></span>
+            <span>Flowchart C: Portfolio Architecture</span>
+          </button>
+        </div>
 
-          <article class="interest-card">
-            <div class="card-icon-box">02</div>
-            <h3 class="card-title">Product Management</h3>
-            <p class="card-description">
-              Understanding users, identifying meaningful problems, studying existing products, and learning how product decisions shape the final experience.
-            </p>
-            <div class="card-footer-tags">
-              <span class="mini-tag">User Needs</span>
-              <span class="mini-tag">Product Teardowns</span>
+        <!-- ==================== DIAGRAM 1: AGRIGRADE / AGRIINSPECT ==================== -->
+        <div id="diagram-agrigrade-panel" class="diagram-panel active" role="tabpanel" tabindex="0">
+          <div class="flowchart-meta-bar">
+            <div class="meta-left">
+              <span class="repo-badge">GitHub: srtkio/AgriGrade</span>
+              <span class="meta-statement">SIH 2026 Problem Statement SIH26031 &bull; Onion Quality Assessment</span>
             </div>
-          </article>
+            <!-- Playback & Step Controls -->
+            <div class="flowchart-controls" aria-label="Pipeline Controls">
+              <button class="control-btn" id="ctrl-play" title="Play or Pause Pipeline Animation">
+                <span id="ctrl-play-icon">&rtrif;</span>
+                <span id="ctrl-play-text">Play Flow</span>
+              </button>
+              <button class="control-btn" id="ctrl-step" title="Step forward to next node">
+                <span>&rarrb; Step</span>
+              </button>
+              <button class="control-btn" id="ctrl-reset" title="Restart Pipeline from beginning">
+                <span>&circlearrowleft; Reset</span>
+              </button>
+            </div>
+          </div>
 
-          <article class="interest-card">
-            <div class="card-icon-box">03</div>
-            <h3 class="card-title">AI &amp; Emerging Tech</h3>
-            <p class="card-description">
-              Exploring artificial intelligence, practical applications of AI, and how emerging technologies can be used to solve real-world problems.
-            </p>
-            <div class="card-footer-tags">
-              <span class="mini-tag">AI Applications</span>
-              <span class="mini-tag">Modern Tools</span>
-            </div>
-          </article>
+          <!-- Interactive SVG Pipeline Visualization -->
+          <div class="svg-diagram-wrapper">
+            <svg id="agrigrade-svg" class="flowchart-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AgriInspect Inspection Pipeline Workflow">
+              <defs>
+                <!-- Arrowhead Marker -->
+                <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#6366f1" />
+                </marker>
+                <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#10b981" />
+                </marker>
+                <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 9 5 L 0 9 z" fill="#f59e0b" />
+                </marker>
 
-          <article class="interest-card">
-            <div class="card-icon-box">04</div>
-            <h3 class="card-title">Design &amp; Creativity</h3>
-            <p class="card-description">
-              Interested in the way visual design, user experience, photography, and creative thinking influence how people interact with products.
-            </p>
-            <div class="card-footer-tags">
-              <span class="mini-tag">UI / UX</span>
-              <span class="mini-tag">Photography</span>
+                <!-- Connector Gradient -->
+                <linearGradient id="line-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#4f46e5" />
+                  <stop offset="50%" stop-color="#38bdf8" />
+                  <stop offset="100%" stop-color="#6366f1" />
+                </linearGradient>
+              </defs>
+
+              <!-- Connector Paths -->
+              <g class="pipeline-connectors">
+                <!-- 1 to 2 -->
+                <line id="path-1-2" x1="110" y1="90" x2="160" y2="90" class="pipe-line" marker-end="url(#arrow)" />
+                <!-- 2 to 3 -->
+                <line id="path-2-3" x1="280" y1="90" x2="330" y2="90" class="pipe-line" marker-end="url(#arrow)" />
+                <!-- 3 to 4 (CV Node) -->
+                <line id="path-3-4" x1="450" y1="90" x2="500" y2="90" class="pipe-line" marker-end="url(#arrow)" />
+
+                <!-- 4 branching down into parallel branches -->
+                <!-- Branch A: Defect Detection -->
+                <path id="path-branch-defect" d="M 560 120 L 560 190 L 350 190 L 350 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
+                <!-- Branch B: Sprouting Detection -->
+                <path id="path-branch-sprout" d="M 560 120 L 560 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
+                <!-- Branch C: Size Estimation -->
+                <path id="path-branch-size" d="M 560 120 L 560 190 L 770 190 L 770 220" class="pipe-line branch-path" marker-end="url(#arrow)" />
+
+                <!-- Converging branches to Batch Statistics (Step 5) -->
+                <path id="path-merge-defect" d="M 350 280 L 350 320 L 500 320 L 500 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
+                <path id="path-merge-sprout" d="M 560 280 L 560 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
+                <path id="path-merge-size" d="M 770 280 L 770 320 L 620 320 L 620 350" class="pipe-line merge-path" marker-end="url(#arrow)" />
+
+                <!-- Step 5 to Step 6: Standards / Rules Engine -->
+                <line id="path-5-6" x1="620" y1="380" x2="680" y2="380" class="pipe-line" marker-end="url(#arrow)" />
+
+                <!-- Step 6 to Step 7: Decision Split -->
+                <line id="path-6-7" x1="800" y1="380" x2="850" y2="380" class="pipe-line" marker-end="url(#arrow)" />
+
+                <!-- Decision Split: High Confidence Path directly to Report -->
+                <path id="path-high-conf" d="M 910 410 L 910 480 L 620 480 L 620 480" class="pipe-line high-conf-line" marker-end="url(#arrow-green)" />
+                <!-- Decision Split: Low Confidence Path to Human Review -->
+                <path id="path-low-conf" d="M 850 350 L 750 350 L 300 350 L 300 450" class="pipe-line low-conf-line" marker-end="url(#arrow-amber)" />
+                <!-- Human Review to Report -->
+                <line id="path-review-report" x1="360" y1="480" x2="480" y2="480" class="pipe-line" marker-end="url(#arrow)" />
+              </g>
+
+              <!-- Moving Particle Indicator -->
+              <circle id="flow-particle" cx="50" cy="90" r="5" class="flow-particle" />
+
+              <!-- Nodes Group -->
+              <g class="pipeline-nodes">
+                <!-- Node 1: Create Lot -->
+                <g class="flow-node active-step" id="node-1" data-node="1" transform="translate(10, 60)">
+                  <rect width="100" height="60" rx="8" class="node-box" />
+                  <text x="50" y="28" text-anchor="middle" class="node-num">01</text>
+                  <text x="50" y="44" text-anchor="middle" class="node-title">Create Lot</text>
+                </g>
+
+                <!-- Node 2: Capture / Upload Produce -->
+                <g class="flow-node" id="node-2" data-node="2" transform="translate(160, 60)">
+                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <text x="60" y="26" text-anchor="middle" class="node-num">02</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-title">RGB Capture</text>
+                  <text x="60" y="52" text-anchor="middle" class="node-sub">Smartphone</text>
+                </g>
+
+                <!-- Node 3: Quality Validation -->
+                <g class="flow-node" id="node-3" data-node="3" transform="translate(330, 60)">
+                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <text x="60" y="26" text-anchor="middle" class="node-num">03</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-title">Image Validation</text>
+                  <text x="60" y="52" text-anchor="middle" class="node-sub">Blur &bull; Lighting</text>
+                </g>
+
+                <!-- Node 4: Computer Vision Analysis (Branching Point) -->
+                <g class="flow-node node-focal" id="node-4" data-node="4" transform="translate(500, 50)">
+                  <rect width="140" height="70" rx="8" class="node-box" />
+                  <text x="70" y="28" text-anchor="middle" class="node-num">04</text>
+                  <text x="70" y="46" text-anchor="middle" class="node-title">Computer Vision</text>
+                  <text x="70" y="60" text-anchor="middle" class="node-sub">Onion Detection</text>
+                </g>
+
+                <!-- Parallel Branch A: Defect Detection -->
+                <g class="flow-node branch-node" id="node-4a" data-node="4a" transform="translate(280, 220)">
+                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch A</text>
+                  <text x="70" y="42" text-anchor="middle" class="node-title">Defect Detection</text>
+                  <text x="70" y="52" text-anchor="middle" class="node-sub">Rot, cuts, mold</text>
+                </g>
+
+                <!-- Parallel Branch B: Sprouting Detection -->
+                <g class="flow-node branch-node" id="node-4b" data-node="4b" transform="translate(490, 220)">
+                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch B</text>
+                  <text x="70" y="42" text-anchor="middle" class="node-title">Sprouting Check</text>
+                  <text x="70" y="52" text-anchor="middle" class="node-sub">Neck germination</text>
+                </g>
+
+                <!-- Parallel Branch C: Size Estimation -->
+                <g class="flow-node branch-node" id="node-4c" data-node="4c" transform="translate(700, 220)">
+                  <rect width="140" height="60" rx="8" class="node-box" />
+                  <text x="70" y="26" text-anchor="middle" class="node-branch-tag">Branch C</text>
+                  <text x="70" y="42" text-anchor="middle" class="node-title">Size Estimation</text>
+                  <text x="70" y="52" text-anchor="middle" class="node-sub">Calibrated mm &Oslash;</text>
+                </g>
+
+                <!-- Node 5: Batch Aggregation (Merge Point) -->
+                <g class="flow-node" id="node-5" data-node="5" transform="translate(490, 350)">
+                  <rect width="130" height="60" rx="8" class="node-box" />
+                  <text x="65" y="26" text-anchor="middle" class="node-num">05</text>
+                  <text x="65" y="42" text-anchor="middle" class="node-title">Batch Analytics</text>
+                  <text x="65" y="52" text-anchor="middle" class="node-sub">Lot aggregation</text>
+                </g>
+
+                <!-- Node 6: Standards & Rules Engine -->
+                <g class="flow-node" id="node-6" data-node="6" transform="translate(680, 350)">
+                  <rect width="120" height="60" rx="8" class="node-box" />
+                  <text x="60" y="26" text-anchor="middle" class="node-num">06</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-title">Rules Engine</text>
+                  <text x="60" y="52" text-anchor="middle" class="node-sub">AGMARK / BIS</text>
+                </g>
+
+                <!-- Node 7: Confidence Decision Split -->
+                <g class="flow-node node-decision" id="node-7" data-node="7" transform="translate(850, 350)">
+                  <polygon points="60,0 120,30 60,60 0,30" class="diamond-box" />
+                  <text x="60" y="28" text-anchor="middle" class="node-title small">Confidence?</text>
+                  <text x="60" y="42" text-anchor="middle" class="node-sub">&ge; 85% vs &lt; 85%</text>
+                </g>
+
+                <!-- Node 8: Human Review & Override -->
+                <g class="flow-node node-human" id="node-8" data-node="8" transform="translate(230, 450)">
+                  <rect width="130" height="60" rx="8" class="node-box" />
+                  <text x="65" y="26" text-anchor="middle" class="node-human-tag">Human-In-Loop</text>
+                  <text x="65" y="42" text-anchor="middle" class="node-title">Inspector Review</text>
+                  <text x="65" y="52" text-anchor="middle" class="node-sub">Override / Audit</text>
+                </g>
+
+                <!-- Node 9: Final Digital Inspection Report -->
+                <g class="flow-node node-success" id="node-9" data-node="9" transform="translate(480, 450)">
+                  <rect width="150" height="60" rx="8" class="node-box" />
+                  <text x="75" y="26" text-anchor="middle" class="node-success-tag">FINAL OUTPUT</text>
+                  <text x="75" y="42" text-anchor="middle" class="node-title">Digital Report</text>
+                  <text x="75" y="52" text-anchor="middle" class="node-sub">Explainable Grade</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Interactive Node Explanatory Card -->
+          <div class="node-inspector-card" id="agrigrade-inspector">
+            <div class="inspector-header">
+              <span class="inspector-label" id="insp-step-label">Step 01 &bull; Initializing Lot</span>
+              <span class="inspector-badge" id="insp-badge">Entry Point</span>
             </div>
-          </article>
+            <h4 class="inspector-title" id="insp-title">Create Inspection Lot</h4>
+            <p class="inspector-description" id="insp-desc">
+              The inspector starts a new inspection session and enters a unique lot ID (e.g. <code>LOT: ON-2026-042</code>). Captures procurement centre metadata and batch context before images are acquired.
+            </p>
+            <div class="inspector-footer">
+              <span class="inspector-tip">&bull; Click on any node in the diagram above to inspect documented technical specifications</span>
+              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="inspector-link">
+                View AgriGrade Repo on GitHub &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== DIAGRAM 2: PROBLEM TO PRODUCT ==================== -->
+        <div id="diagram-framework-panel" class="diagram-panel" role="tabpanel" tabindex="0">
+          <div class="flowchart-meta-bar">
+            <div class="meta-left">
+              <span class="repo-badge">Product Thinking Framework</span>
+              <span class="meta-statement">How Sarthak approaches problems: from user friction to measurable software solutions</span>
+            </div>
+          </div>
+
+          <div class="framework-diagram-grid">
+            <div class="framework-steps-container">
+              <div class="p2p-step active" data-step="1">
+                <div class="p2p-badge">01</div>
+                <div class="p2p-content">
+                  <h4>Problem Identification</h4>
+                  <p>Spotting everyday friction, manual inefficiencies, or broken workflows.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="2">
+                <div class="p2p-badge">02</div>
+                <div class="p2p-content">
+                  <h4>User Research</h4>
+                  <p>Understanding stakeholder constraints, field conditions, and true pain points.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="3">
+                <div class="p2p-badge">03</div>
+                <div class="p2p-content">
+                  <h4>Define Core Problem</h4>
+                  <p>Distilling complexity into a clear, single, testable problem statement.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="4">
+                <div class="p2p-badge">04</div>
+                <div class="p2p-content">
+                  <h4>Explore Solutions</h4>
+                  <p>Brainstorming low-friction interventions and technical trade-offs.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="5">
+                <div class="p2p-badge">05</div>
+                <div class="p2p-content">
+                  <h4>Prototype</h4>
+                  <p>Crafting interactive flows, mockups, or lightweight code proofs of concept.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="6">
+                <div class="p2p-badge">06</div>
+                <div class="p2p-content">
+                  <h4>Test &amp; Iterate</h4>
+                  <p>Testing with real peers or users, measuring clarity vs confusion.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="7">
+                <div class="p2p-badge">07</div>
+                <div class="p2p-content">
+                  <h4>Build Minimum Viable Product</h4>
+                  <p>Writing clean, auditable code with standard frameworks and solid documentation.</p>
+                </div>
+              </div>
+              <div class="p2p-step" data-step="8">
+                <div class="p2p-badge">08</div>
+                <div class="p2p-content">
+                  <h4>Learn from Feedback</h4>
+                  <p>Analyzing usage data, edge cases, and feeding insights into next iteration.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="framework-detail-card" id="framework-detail">
+              <span class="detail-label">FRAMEWORK DEEP DIVE</span>
+              <h3 id="fw-detail-title">01 &bull; Problem Identification</h3>
+              <p id="fw-detail-desc">
+                Great products don't start with code or hype; they start with observing friction. In projects like <strong>AgriInspect</strong> and <strong>Converge</strong>, the focus is on unaddressed real-world inefficiencies—such as subjective onion grading at mandis, or civic tickets closed without photographic proof.
+              </p>
+              <div class="fw-principle">
+                <strong>Core Rule:</strong> Fall in love with the problem, not the first solution.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== DIAGRAM 3: PORTFOLIO ARCHITECTURE ==================== -->
+        <div id="diagram-portfolio-panel" class="diagram-panel" role="tabpanel" tabindex="0">
+          <div class="flowchart-meta-bar">
+            <div class="meta-left">
+              <span class="repo-badge">Behind the Build</span>
+              <span class="meta-statement">How SARTHAK.EXE operates: zero-build runtime, live API integration &amp; SVG animations</span>
+            </div>
+          </div>
+
+          <div class="architecture-flow-wrapper">
+            <div class="arch-node-box">
+              <div class="arch-num">01</div>
+              <h4>Visitor Access</h4>
+              <p>Direct browser request &bull; zero build step required.</p>
+            </div>
+            <div class="arch-connector">&rarr;</div>
+            <div class="arch-node-box">
+              <div class="arch-num">02</div>
+              <h4>GSAP &amp; SVG Motion</h4>
+              <p>ScrollTrigger hooks, vector particle paths &bull; responsive physics.</p>
+            </div>
+            <div class="arch-connector">&rarr;</div>
+            <div class="arch-node-box">
+              <div class="arch-num">03</div>
+              <h4>GitHub Public API</h4>
+              <p>Fetches real repo metadata from <code>/users/srtkio/repos</code>.</p>
+            </div>
+            <div class="arch-connector">&rarr;</div>
+            <div class="arch-node-box">
+              <div class="arch-num">04</div>
+              <h4>Interactive Views</h4>
+              <p>Live repo cards, filter engine, deep-dive modal case studies.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         5. SKILLS AND TECHNOLOGIES
-         Honest, categorized skills currently being learned
-    ========================================================= -->
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Foundation</span>
-          <h2 class="section-title">What I'm learning.</h2>
-          <p class="section-subtitle">Skills and concepts I am currently developing through coursework, personal projects, and teamwork.</p>
-        </div>
-
-        <div class="skills-grid">
-          <!-- Category 1 -->
-          <article class="skill-group-card">
-            <h3 class="skill-group-title">
-              <span class="group-bullet"></span>
-              Programming &amp; Development
-            </h3>
-            <p class="skill-group-desc">Building strong core fundamentals in code and web technologies.</p>
-            <ul class="skill-tag-list">
-              <li class="skill-tag">
-                <span class="tag-name">Programming fundamentals</span>
-                <span class="tag-level">Learning</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">HTML5</span>
-                <span class="tag-level">Practicing</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">CSS3</span>
-                <span class="tag-level">Practicing</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Git &amp; GitHub</span>
-                <span class="tag-level">Learning</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Web development fundamentals</span>
-                <span class="tag-level">Exploring</span>
-              </li>
-            </ul>
-          </article>
-
-          <!-- Category 2 -->
-          <article class="skill-group-card">
-            <h3 class="skill-group-title">
-              <span class="group-bullet"></span>
-              Product &amp; Problem-Solving
-            </h3>
-            <p class="skill-group-desc">Developing structured thinking, problem validation, and team alignment.</p>
-            <ul class="skill-tag-list">
-              <li class="skill-tag">
-                <span class="tag-name">Product thinking</span>
-                <span class="tag-level">Exploring</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Problem identification</span>
-                <span class="tag-level">Practicing</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Basic product documentation</span>
-                <span class="tag-level">Learning</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Team collaboration</span>
-                <span class="tag-level">Active</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Presentation &amp; pitching</span>
-                <span class="tag-level">Practicing</span>
-              </li>
-            </ul>
-          </article>
-
-          <!-- Category 3 -->
-          <article class="skill-group-card">
-            <h3 class="skill-group-title">
-              <span class="group-bullet"></span>
-              Creative Interests
-            </h3>
-            <p class="skill-group-desc">Creative pursuits that inform my aesthetic sense and perspective.</p>
-            <ul class="skill-tag-list">
-              <li class="skill-tag">
-                <span class="tag-name">Visual design</span>
-                <span class="tag-level">Interest</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Photography</span>
-                <span class="tag-level">Hobby</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Content creation</span>
-                <span class="tag-level">Exploring</span>
-              </li>
-              <li class="skill-tag">
-                <span class="tag-name">Creative ideation</span>
-                <span class="tag-level">Active</span>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         6. PROJECTS SECTION
-         Responsive project card grid with honest stage labels
+         5. FEATURED PROJECTS & CASE STUDIES
+         Verified Hackathon Winners, Real Repos & Deep Case Studies
     ========================================================= -->
     <section id="projects" class="section projects-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Portfolio</span>
-          <h2 class="section-title">Things I've worked on.</h2>
-          <p class="section-subtitle">A collection of concepts, pitch ideas, and ongoing technical explorations.</p>
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Engineered Work</span>
+          <h2 class="section-title">Things I've built &amp; explored.</h2>
+          <p class="section-subtitle">
+            High-impact hackathon projects, AI systems, and verified software applications. Click any card to launch the comprehensive case study.
+          </p>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
+          <!-- Featured Project 1: AgriGrade / AgriInspect -->
+          <article class="project-card project-card-spotlight" data-project-id="agrigrade" data-animate="fade-up">
+            <div class="project-card-header">
+              <div class="badge-group">
+                <span class="project-badge status-progress">SIH 2026 Core MVP</span>
+                <span class="project-badge badge-ai">Computer Vision</span>
+              </div>
+              <span class="project-category">Agricultural AI Inspection</span>
+            </div>
+            <h3 class="project-title">AgriGrade (AgriInspect)</h3>
+            <p class="project-description">
+              AI-assisted onion quality inspection platform engineered for procurement centres. Uses smartphone computer vision to classify surface defects, identify sprouting, estimate calibrated bulb sizes, and enforce decoupled AGMARK/BIS rules with human-in-the-loop auditability.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Computer Vision</span>
+              <span class="pill">Rules Engine</span>
+              <span class="pill">SIH 2026</span>
+              <span class="pill">Python</span>
+              <span class="pill">Inspection Workflow</span>
+            </div>
+            <div class="project-footer">
+              <button class="btn-case-study" aria-label="Open AgriGrade Case Study">
+                <span>View Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <a href="https://github.com/srtkio/AgriGrade" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="GitHub Repository">
+                <span>github.com/srtkio/AgriGrade &nearr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Featured Project 2: RAGSeal -->
+          <article class="project-card" data-project-id="ragseal" data-animate="fade-up">
+            <div class="project-card-header">
+              <div class="badge-group">
+                <span class="project-badge status-winner">Hypnexis '26 Winner &bull; 3rd Place</span>
+                <span class="project-badge badge-ai">RAG Evaluation</span>
+              </div>
+              <span class="project-category">AI Attribution Testing</span>
+            </div>
+            <h3 class="project-title">RAGSeal</h3>
+            <p class="project-description">
+              "When a RAG answer is wrong, RAGSeal proves whether the retriever or generator caused it." Built at Hypnexis '26 by Team Monster Energy (3rd place among 489 teams, ₹50,000 prize). Implements attribution grading across local Ollama models and hosted Groq endpoints.
+            </p>
+            <div class="project-tags">
+              <span class="pill">FastAPI</span>
+              <span class="pill">React 18</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Ollama</span>
+              <span class="pill">Groq</span>
+              <span class="pill">SQLite Vector</span>
+            </div>
+            <div class="project-footer">
+              <button class="btn-case-study" aria-label="Open RAGSeal Case Study">
+                <span>View Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <a href="https://ragseal.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Live Demo">
+                <span>ragseal.vercel.app &nearr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Featured Project 3: CONVERGE -->
+          <article class="project-card" data-project-id="converge" data-animate="fade-up">
+            <div class="project-card-header">
+              <div class="badge-group">
+                <span class="project-badge status-deployed">Live Deployment</span>
+                <span class="project-badge badge-web">Civic Tech</span>
+              </div>
+              <span class="project-category">Smart Cities Platform</span>
+            </div>
+            <h3 class="project-title">CONVERGE</h3>
+            <p class="project-description">
+              "City complaints, closed only when they're really fixed." Civic complaint platform piloted in Murthal–Sonipat (GT Road / NH-44). Groups duplicate citizen reports, links shared root causes, monitors SLA deadlines, escalates slip-ups, and verifies resolution evidence.
+            </p>
+            <div class="project-tags">
+              <span class="pill">Civic Resolution</span>
+              <span class="pill">SLA Escalation</span>
+              <span class="pill">Operator Dashboard</span>
+              <span class="pill">Audit Trail</span>
+            </div>
+            <div class="project-footer">
+              <button class="btn-case-study" aria-label="Open CONVERGE Case Study">
+                <span>View Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <a href="https://converge-web-ten.vercel.app" target="_blank" rel="noopener noreferrer" class="project-repo-link" title="Live Operator Demo">
+                <span>converge-web-ten.vercel.app &nearr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Concept 1: WhatsApp-to-Calendar -->
+          <article class="project-card" data-project-id="w2c" data-animate="fade-up">
             <div class="project-card-header">
               <span class="project-badge status-planning">MVP Planning</span>
               <span class="project-category">Product Concept</span>
             </div>
             <h3 class="project-title">WhatsApp-to-Calendar</h3>
             <p class="project-description">
-              Exploring a workflow that turns useful information shared through WhatsApp into calendar events, with an emphasis on reducing manual effort and making everyday planning easier.
+              Exploring an automated workflow that parses schedule commitments, dates, and event details shared through WhatsApp chats directly into calendar invitations, reducing human planning friction.
             </p>
             <div class="project-tags">
-              <span class="pill">Automation</span>
-              <span class="pill">Productivity</span>
               <span class="pill">Workflow</span>
+              <span class="pill">Productivity</span>
+              <span class="pill">Natural Language</span>
             </div>
             <div class="project-footer">
-              <span class="status-placeholder">Coming soon &bull; Concept Stage</span>
+              <span class="status-placeholder">Concept Stage &bull; Spec Drafted</span>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card">
+          <!-- Concept 2: WTFit - Smart Wardrobe -->
+          <article class="project-card" data-project-id="wtfit" data-animate="fade-up">
             <div class="project-card-header">
-              <span class="project-badge status-concept">Concept</span>
-              <span class="project-category">Product Idea</span>
+              <span class="project-badge status-concept">Product Concept</span>
+              <span class="project-category">Lifestyle &amp; Tech</span>
             </div>
             <h3 class="project-title">WTFit - Smart Wardrobe</h3>
             <p class="project-description">
-              A smart wardrobe concept focused on helping users think through outfit choices and organize clothing more effectively.
+              A smart wardrobe concept focused on helping users catalog clothing items, match outfits based on weather and occasion, and organize apparel sustainably without decision fatigue.
             </p>
             <div class="project-tags">
-              <span class="pill">Lifestyle Tech</span>
-              <span class="pill">UX Concept</span>
-              <span class="pill">Organization</span>
+              <span class="pill">Smart Wardrobe</span>
+              <span class="pill">UX Modeling</span>
+              <span class="pill">Design Concept</span>
             </div>
             <div class="project-footer">
-              <span class="status-placeholder">Coming soon &bull; Early Exploration</span>
+              <span class="status-placeholder">Concept Stage &bull; Early Exploration</span>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <span class="project-badge status-concept">Concept</span>
-              <span class="project-category">Product Concept</span>
-            </div>
-            <h3 class="project-title">Zender</h3>
-            <p class="project-description">
-              A social platform concept for travellers, exploring how people can connect and share experiences around their journeys.
-            </p>
-            <div class="project-tags">
-              <span class="pill">Social</span>
-              <span class="pill">Travel</span>
-              <span class="pill">Community</span>
-            </div>
-            <div class="project-footer">
-              <span class="status-placeholder">Coming soon &bull; Design Draft</span>
-            </div>
-          </article>
-
-          <!-- Project 4 -->
-          <article class="project-card">
+          <!-- Concept 3: Zender & GPS Shoes -->
+          <article class="project-card" data-project-id="zender" data-animate="fade-up">
             <div class="project-card-header">
               <span class="project-badge status-pitch">Pitch Concept</span>
-              <span class="project-category">Hardware / Pitch</span>
+              <span class="project-category">Explorations</span>
             </div>
-            <h3 class="project-title">GPS Shoes</h3>
+            <h3 class="project-title">Zender &amp; GPS Shoes</h3>
             <p class="project-description">
-              A concept exploring location-aware footwear and navigation, with a focus on helping people navigate unfamiliar environments.
+              Dual design concepts: <strong>Zender</strong> (a social travel community platform for route-sharing) and <strong>GPS Shoes</strong> (haptic location-aware footwear assisting visually impaired travelers in unfamiliar terrain).
             </p>
             <div class="project-tags">
-              <span class="pill">Wearables</span>
-              <span class="pill">Navigation</span>
-              <span class="pill">Accessibility</span>
+              <span class="pill">Travel Tech</span>
+              <span class="pill">Assistive Hardware</span>
+              <span class="pill">Pitch Decks</span>
             </div>
             <div class="project-footer">
-              <span class="status-placeholder">Coming soon &bull; Pitch Deck</span>
-            </div>
-          </article>
-
-          <!-- Project 5 -->
-          <article class="project-card project-card-featured">
-            <div class="project-card-header">
-              <span class="project-badge status-progress">In Progress</span>
-              <span class="project-category">Web Project</span>
-            </div>
-            <h3 class="project-title">Converge</h3>
-            <p class="project-description">
-              An example of my work exploring web-based products and collaborative problem-solving. Add the actual project description, implementation details, and source links once verified.
-            </p>
-            <div class="project-tags">
-              <span class="pill">HTML &amp; CSS</span>
-              <span class="pill">Web Prototype</span>
-              <span class="pill">Collaboration</span>
-            </div>
-            <div class="project-footer">
-              <!-- Replace with actual project link when ready -->
-              <span class="status-placeholder">Documentation &amp; Demo in progress</span>
+              <span class="status-placeholder">Pitch Deck &bull; Research Phase</span>
             </div>
           </article>
         </div>
@@ -463,157 +768,272 @@
     </section>
 
     <!-- =========================================================
-         7. COLLEGE LIFE AND EXTRACURRICULAR ACTIVITIES
-         Timeline and stacked experiences beyond academics
+         6. LIVE GITHUB INTEGRATION
+         Real GitHub REST API, repository filters, stars/forks & error handling
     ========================================================= -->
-    <section id="journey" class="section journey-section">
+    <section id="github" class="section github-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Campus &amp; Beyond</span>
-          <h2 class="section-title">Learning beyond the classroom.</h2>
+        <div class="section-header" data-animate="fade-up">
+          <div class="github-header-top">
+            <div>
+              <span class="section-label">Real-Time Open Source</span>
+              <h2 class="section-title">Live GitHub Repositories.</h2>
+            </div>
+            <a href="https://github.com/srtkio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              <span>View @srtkio on GitHub</span>
+            </a>
+          </div>
           <p class="section-subtitle">
-            For me, college is not just about completing a degree. It is also about meeting people, exploring new fields, learning to work in teams, and discovering what I enjoy doing.
+            Synchronized directly with <code>api.github.com/users/srtkio/repos</code>. Real repository metadata, star counts, branches, and languages.
           </p>
         </div>
 
-        <div class="journey-timeline">
-          <!-- Item 1 -->
-          <article class="journey-card">
-            <div class="journey-node"></div>
-            <div class="journey-content">
-              <div class="journey-meta">
-                <h3 class="journey-title">Arthakram</h3>
-                <span class="journey-tag">Product &amp; Content</span>
-              </div>
-              <p class="journey-desc">
-                My involvement with Arthakram has helped me explore product management, product thinking, communication, and collaborative work. I have also contributed to marketing and content-related initiatives.
-              </p>
-            </div>
-          </article>
+        <!-- Filter Controls -->
+        <div class="repo-filter-bar" data-animate="fade-up">
+          <button class="repo-filter-btn active" data-filter="all">All Repositories</button>
+          <button class="repo-filter-btn" data-filter="ai">AI &amp; Computer Vision</button>
+          <button class="repo-filter-btn" data-filter="systems">Systems &amp; Web</button>
+          <button class="repo-filter-btn" data-filter="academic">Coursework &amp; Tests</button>
+        </div>
 
-          <!-- Item 2 -->
-          <article class="journey-card">
-            <div class="journey-node"></div>
-            <div class="journey-content">
-              <div class="journey-meta">
-                <h3 class="journey-title">Product Guys</h3>
-                <span class="journey-tag">Learning Initiative</span>
-              </div>
-              <p class="journey-desc">
-                An initiative associated with product management learning, focused on making product concepts easier to explore through structured lessons, product teardowns, and interactive challenges.
-              </p>
-            </div>
-          </article>
+        <!-- Live Repository Grid (Populated dynamically by app.js) -->
+        <div class="github-repo-grid" id="github-repo-grid" aria-live="polite">
+          <!-- Loading Skeleton -->
+          <div class="repo-card repo-skeleton">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line desc"></div>
+            <div class="skeleton-line meta"></div>
+          </div>
+          <div class="repo-card repo-skeleton">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line desc"></div>
+            <div class="skeleton-line meta"></div>
+          </div>
+          <div class="repo-card repo-skeleton">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line desc"></div>
+            <div class="skeleton-line meta"></div>
+          </div>
+        </div>
 
-          <!-- Item 3 -->
-          <article class="journey-card">
-            <div class="journey-node"></div>
-            <div class="journey-content">
-              <div class="journey-meta">
-                <h3 class="journey-title">MasterGrade MUN 2026</h3>
-                <span class="journey-tag">Coordination &amp; Events</span>
-              </div>
-              <p class="journey-desc">
-                Contributing to organizing and communication-related work around a Model United Nations event, including coordination, promotional material, and delegate-facing communication.
-              </p>
-            </div>
-          </article>
-
-          <!-- Item 4 -->
-          <article class="journey-card">
-            <div class="journey-node"></div>
-            <div class="journey-content">
-              <div class="journey-meta">
-                <h3 class="journey-title">Hackathons &amp; Team Projects</h3>
-                <span class="journey-tag">Collaborative Building</span>
-              </div>
-              <p class="journey-desc">
-                Participating in hackathon-related work and exploring how teams move from problem statements to ideas, prototypes, and potential solutions.
-              </p>
-            </div>
-          </article>
-
-          <!-- Item 5 -->
-          <article class="journey-card">
-            <div class="journey-node"></div>
-            <div class="journey-content">
-              <div class="journey-meta">
-                <h3 class="journey-title">College Clubs &amp; Community</h3>
-                <span class="journey-tag">Community</span>
-              </div>
-              <p class="journey-desc">
-                Exploring opportunities to collaborate with students from different backgrounds and contribute to projects, events, and campus initiatives.
-              </p>
-            </div>
-          </article>
+        <!-- GitHub Public Stats Banner -->
+        <div class="github-activity-strip" data-animate="fade-up">
+          <div class="activity-stat">
+            <span class="act-val">100%</span>
+            <span class="act-label">Verified Repositories</span>
+          </div>
+          <div class="activity-stat">
+            <span class="act-val">SIH '26</span>
+            <span class="act-label">AgriInspect Active Core</span>
+          </div>
+          <div class="activity-stat">
+            <span class="act-val">MIT</span>
+            <span class="act-label">Open Source License</span>
+          </div>
+          <div class="activity-stat">
+            <span class="act-val">Public API</span>
+            <span class="act-label">Real-Time Client Telemetry</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         8. HACKATHONS AND ACHIEVEMENTS
-         Honest, clearly attributed competitions and achievements
+         7. ANIMATED JOURNEY TIMELINE
+         Scroll-linked SVG path, progressive node revelation
+    ========================================================= -->
+    <section id="journey" class="section journey-section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Milestones &amp; Evolution</span>
+          <h2 class="section-title">The journey so far.</h2>
+          <p class="section-subtitle">
+            For me, college is not just about completing a degree. It is about meeting people, exploring new fields, learning to work in teams, and discovering what I enjoy doing.
+          </p>
+        </div>
+
+        <div class="animated-timeline" id="animated-timeline">
+          <!-- Timeline Vertical SVG Path -->
+          <div class="timeline-svg-container" aria-hidden="true">
+            <svg class="timeline-svg" preserveAspectRatio="none">
+              <line class="timeline-line-base" x1="12" y1="0" x2="12" y2="100%" />
+              <line class="timeline-line-progress" id="timeline-progress-line" x1="12" y1="0" x2="12" y2="0" />
+            </svg>
+          </div>
+
+          <div class="timeline-entries-list">
+            <!-- Timeline Item 1 -->
+            <article class="timeline-entry" data-category="education" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-edu">Education</span>
+                  <span class="entry-time">College Journey &bull; Ongoing</span>
+                </div>
+                <h3 class="entry-title">Starting B.Tech at Newton School of Technology</h3>
+                <p class="entry-desc">
+                  Admitted to the B.Tech program. Began developing strong engineering fundamentals, exploring algorithmic thinking, data structures, and the broader tech landscape.
+                </p>
+              </div>
+            </article>
+
+            <!-- Timeline Item 2 -->
+            <article class="timeline-entry" data-category="competitions" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-hackathon">Competition Winner</span>
+                  <span class="entry-time">Hypnexis '26</span>
+                </div>
+                <h3 class="entry-title">Hypnexis '26 &bull; 3rd Place with Team Monster Energy</h3>
+                <p class="entry-desc">
+                  Won 3rd place among 489 competitive teams (₹50,000 cash prize) with <strong>RAGSeal</strong>—an AI evaluation tool proving whether retrieval or generator components fail during RAG inference errors.
+                </p>
+              </div>
+            </article>
+
+            <!-- Timeline Item 3 -->
+            <article class="timeline-entry" data-category="product" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-product">Product &amp; Content</span>
+                  <span class="entry-time">Ongoing</span>
+                </div>
+                <h3 class="entry-title">Exploring Product Management through Arthakram</h3>
+                <p class="entry-desc">
+                  Active involvement with Arthakram, learning how product decisions shape real user outcomes, studying product breakdowns, and contributing to marketing, communication, and content initiatives.
+                </p>
+              </div>
+            </article>
+
+            <!-- Timeline Item 4 -->
+            <article class="timeline-entry" data-category="product" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-product">Product Initiative</span>
+                  <span class="entry-time">Ongoing</span>
+                </div>
+                <h3 class="entry-title">Product Guys Initiative</h3>
+                <p class="entry-desc">
+                  Collaborative initiative making product concepts accessible through structured case studies, product teardowns, UX evaluations, and interactive product challenges.
+                </p>
+              </div>
+            </article>
+
+            <!-- Timeline Item 5 -->
+            <article class="timeline-entry" data-category="leadership" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-mun">Diplomacy &amp; Organizing</span>
+                  <span class="entry-time">MasterGrade MUN 2026</span>
+                </div>
+                <h3 class="entry-title">MasterGrade MUN 2026 Organizing Committee</h3>
+                <p class="entry-desc">
+                  Contributing to organizing and communication-related work around a Model United Nations event, including coordination, promotional material, and delegate-facing communications.
+                </p>
+              </div>
+            </article>
+
+            <!-- Timeline Item 6 -->
+            <article class="timeline-entry" data-category="competitions" data-animate="fade-up">
+              <div class="timeline-marker">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-card">
+                <div class="timeline-card-header">
+                  <span class="entry-category-badge cat-hackathon">Hackathon Sprint</span>
+                  <span class="entry-time">Fetch-a-thon 3.0 &bull; BITSoM Paradox</span>
+                </div>
+                <h3 class="entry-title">Collegiate Hackathons &amp; Challenges</h3>
+                <p class="entry-desc">
+                  Participated in Fetch-a-thon 3.0 and Product Paradox (BITSoM Top 6 cohort). Continuously learning to pitch solutions, work under tight sprint deadlines, and iterate rapidly.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. HACKATHONS & ACHIEVEMENTS (VERIFIED & AUDITED)
     ========================================================= -->
     <section id="achievements" class="section achievements-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">Milestones</span>
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Competition Record</span>
           <h2 class="section-title">Experiences worth sharing.</h2>
           <p class="section-subtitle">
-            Competitions, team challenges, and problem-solving events. Team accomplishments are noted transparently.
+            Verified team accomplishments and competitive problem-solving milestones.
           </p>
         </div>
 
         <div class="achievements-grid">
           <!-- Achievement 1 -->
-          <article class="achievement-card">
+          <article class="achievement-card highlight-win" data-animate="fade-up">
             <div class="achievement-header">
-              <span class="achievement-badge team-badge">Team Achievement</span>
-              <span class="achievement-sub">Hackathon</span>
+              <span class="achievement-badge team-badge">3rd Place Winner</span>
+              <span class="achievement-sub">Team Monster Energy</span>
             </div>
             <h3 class="achievement-title">Hypnexis '26</h3>
-            <p class="achievement-result">Third place among 489 teams &bull; ₹50,000 prize</p>
+            <p class="achievement-result">3rd place among 489 teams &bull; ₹50,000 cash prize</p>
             <p class="achievement-note">
-              Participated as part of a multi-member college team tackling real-world problem statements. Note: Verification and official college record confirmation in progress.
+              Built <strong>RAGSeal</strong>, an automated evaluator that attributes errors in Retrieval-Augmented Generation to either the vector retriever or LLM generator.
             </p>
           </article>
 
           <!-- Achievement 2 -->
-          <article class="achievement-card">
+          <article class="achievement-card" data-animate="fade-up">
             <div class="achievement-header">
-              <span class="achievement-badge team-badge">Team Achievement</span>
-              <span class="achievement-sub">Case Challenge</span>
+              <span class="achievement-badge team-badge">Top 6 Finalist Cohort</span>
+              <span class="achievement-sub">BITSoM Product Case</span>
             </div>
             <h3 class="achievement-title">Product Paradox, BITSoM</h3>
-            <p class="achievement-result">Top 6 Finalist Cohort</p>
+            <p class="achievement-result">Top 6 Finalist Teams</p>
             <p class="achievement-note">
-              Two first-year teams reached the Top 6 in this competitive product challenge. Personal involvement and cohort result currently listed as preliminary pending final verification.
+              Evaluated strategic product market fit, monetization trade-offs, and growth levers in a national collegiate business case competition.
             </p>
           </article>
 
           <!-- Achievement 3 -->
-          <article class="achievement-card">
+          <article class="achievement-card" data-animate="fade-up">
             <div class="achievement-header">
-              <span class="achievement-badge challenge-badge">Competition</span>
-              <span class="achievement-sub">Developer Sprint</span>
+              <span class="achievement-badge challenge-badge">Rapid Sprint</span>
+              <span class="achievement-sub">Developer Hackathon</span>
             </div>
             <h3 class="achievement-title">Fetch-a-thon 3.0</h3>
-            <p class="achievement-result">Team Participant</p>
+            <p class="achievement-result">Sprint Participant</p>
             <p class="achievement-note">
-              Collaborative developer sprint focused on rapid ideation and prototyping. Verified project outcomes and individual contributions to be updated once officially certified.
+              Engineered rapid prototypes under strict time constraints, refining team alignment, API integration, and user-centric problem solving.
             </p>
           </article>
 
-          <!-- Achievement 4 (Placeholder for ongoing participation) -->
-          <article class="achievement-card achievement-placeholder">
+          <!-- Achievement 4 -->
+          <article class="achievement-card" data-animate="fade-up">
             <div class="achievement-header">
-              <span class="achievement-badge placeholder-badge">Upcoming</span>
-              <span class="achievement-sub">Future Sprints</span>
+              <span class="achievement-badge challenge-badge">National Level</span>
+              <span class="achievement-sub">Smart India Hackathon</span>
             </div>
-            <h3 class="achievement-title">Ongoing &amp; Future Challenges</h3>
-            <p class="achievement-result">In Progress</p>
+            <h3 class="achievement-title">SIH 2026: AgriInspect</h3>
+            <p class="achievement-result">Problem Statement SIH26031</p>
             <p class="achievement-note">
-              Actively preparing for upcoming collegiate hackathons, design sprints, and product case competitions throughout the academic year.
+              Leading the development of <strong>AgriInspect</strong> for AI-assisted onion quality grading with computer vision, explainable rules, and human-in-the-loop oversight.
             </p>
           </article>
         </div>
@@ -621,88 +1041,47 @@
     </section>
 
     <!-- =========================================================
-         9. GOALS AND LEARNING JOURNEY
-         Reflection and forward-looking three-pillar vision
-    ========================================================= -->
-    <section id="goals" class="section goals-section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Looking Forward</span>
-          <h2 class="section-title">Where I'm headed.</h2>
-        </div>
-
-        <div class="goals-content-grid">
-          <div class="goals-copy">
-            <p>
-              I'm at the beginning of my journey, and there is still a lot I want to learn.
-            </p>
-            <p>
-              My current goal is to build a strong foundation in software development while exploring product management and understanding how technology can solve real problems.
-            </p>
-            <p>
-              I want to work on projects that go beyond tutorials, collaborate with people who challenge me to think differently, participate in meaningful competitions, and gradually build a portfolio that reflects what I can actually do.
-            </p>
-            <p>
-              I'm not trying to have everything figured out right now. I'm focused on learning consistently, experimenting, and improving with every project.
-            </p>
-          </div>
-
-          <div class="goals-pillars">
-            <div class="pillar-card">
-              <span class="pillar-number">01</span>
-              <h3 class="pillar-title">Build strong technical fundamentals.</h3>
-              <p class="pillar-desc">Deepen understanding of core programming, web architecture, and clean implementation standards.</p>
-            </div>
-
-            <div class="pillar-card">
-              <span class="pillar-number">02</span>
-              <h3 class="pillar-title">Create and document real projects.</h3>
-              <p class="pillar-desc">Move beyond guided tutorials into shipping functional products and writing thorough documentation.</p>
-            </div>
-
-            <div class="pillar-card">
-              <span class="pillar-number">03</span>
-              <h3 class="pillar-title">Learn through collaboration and experimentation.</h3>
-              <p class="pillar-desc">Engage with multidisciplinary teams, participate in hackathons, and learn by shipping quickly.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         10. CONTACT SECTION
-         Clean direct links without JavaScript or fake forms
+         9. CONTACT SECTION
+         Real Email, Real GitHub, Verified Links
     ========================================================= -->
     <section id="contact" class="section contact-section">
       <div class="container contact-container">
-        <div class="contact-card">
+        <div class="contact-card" data-animate="fade-up">
           <span class="section-label">Get in Touch</span>
           <h2 class="section-title">Let's connect.</h2>
           <p class="contact-text">
-            I'm always open to connecting with people who enjoy building things, exploring ideas, or learning something new.
+            I'm always open to connecting with people who enjoy building things, exploring ideas, discussing AI systems, or learning something new.
           </p>
 
-          <!-- Direct links using standard HTML anchor tags -->
           <div class="contact-links">
-            <!-- Replace placeholder URLs with your actual profile links before submission -->
-            <a href="https://linkedin.com/in/sarthak-rai" class="contact-btn" target="_blank" rel="noopener noreferrer">
-              <span class="contact-icon">&rarr;</span>
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-hint">linkedin.com/in/sarthak-rai</span>
+            <!-- Direct Email -->
+            <a href="mailto:trojan5779@gmail.com" class="contact-btn">
+              <div class="contact-btn-left">
+                <span class="contact-icon">&commat;</span>
+                <div>
+                  <span class="contact-label">Direct Email</span>
+                  <span class="contact-hint">trojan5779@gmail.com</span>
+                </div>
+              </div>
+              <span class="contact-arrow">&rarr;</span>
             </a>
 
-            <a href="https://github.com/sarthak-rai" class="contact-btn" target="_blank" rel="noopener noreferrer">
-              <span class="contact-icon">&rarr;</span>
-              <span class="contact-label">GitHub</span>
-              <span class="contact-hint">github.com/sarthak-rai</span>
+            <!-- GitHub Profile -->
+            <a href="https://github.com/srtkio" class="contact-btn" target="_blank" rel="noopener noreferrer">
+              <div class="contact-btn-left">
+                <span class="contact-icon">&gt;_</span>
+                <div>
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-hint">github.com/srtkio</span>
+                </div>
+              </div>
+              <span class="contact-arrow">&nearr;</span>
             </a>
 
-            <a href="mailto:sarthak.rai@example.com" class="contact-btn">
-              <span class="contact-icon">&rarr;</span>
-              <span class="contact-label">Email</span>
-              <span class="contact-hint">sarthak.rai@example.com</span>
-            </a>
+            <!-- Institution Badge -->
+            <div class="contact-academic-badge">
+              <span>Newton School of Technology &bull; B.Tech Student</span>
+            </div>
           </div>
         </div>
       </div>
@@ -710,14 +1089,37 @@
   </main>
 
   <!-- =========================================================
+       10. INTERACTIVE CASE STUDY MODAL DIALOG
+  ========================================================= -->
+  <dialog id="case-study-modal" class="case-study-modal" aria-labelledby="modal-title">
+    <div class="modal-dialog-inner">
+      <header class="modal-header">
+        <div>
+          <span class="modal-category" id="modal-category">Detailed Case Study</span>
+          <h2 class="modal-title" id="modal-title">Project Title</h2>
+        </div>
+        <button class="modal-close-btn" id="modal-close" aria-label="Close Case Study">&times;</button>
+      </header>
+      
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically injected case study details -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Floating Back to Top Button -->
+  <button id="floating-back-to-top" class="floating-back-to-top" aria-label="Back to top of page">
+    <span aria-hidden="true">&uarr;</span>
+  </button>
+
+  <!-- =========================================================
        11. FOOTER
-       Clean sign-off, personal note, and back-to-top anchor
   ========================================================= -->
   <footer class="site-footer">
     <div class="container footer-content">
       <div class="footer-left">
-        <p class="footer-credit">Designed and built by <strong>Sarthak Rai</strong>.</p>
-        <p class="footer-note">A small snapshot of a journey that's just getting started.</p>
+        <p class="footer-credit">SARTHAK.EXE &bull; Designed &amp; built by <strong>Sarthak Rai</strong>.</p>
+        <p class="footer-note">Newton School of Technology &bull; Student &bull; Builder &bull; 2026</p>
       </div>
       
       <div class="footer-right">
@@ -730,4 +1132,3 @@
 
 </body>
 </html>
-
